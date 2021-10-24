@@ -1,7 +1,7 @@
 # Full Stack Engineer - Reddit Client
 ### CodeCademy | Full Stack Engineer
 
-## Project Requirements:
+## Project Requirements
 * Build the application using React and Redux
 * Version control your application with Git and host the repository on GitHub
 * Use a project management tool (GitHub Projects, Trello, etc.) to plan your work
@@ -28,7 +28,7 @@
 * OPTIONAL: Set up a CI/CD workflow to automatically deploy your application when the master branch in the repository changes
 * OPTIONAL: Make your application a progressive web app
 
-## Prerequisites:
+## Prerequisites
 * HTML
 * CSS
 * JavaScript
