@@ -1,6 +1,8 @@
 # Full Stack Engineer - Reddit Client
 ### CodeCademy | Full Stack Engineer
 
+<img src="https://github.com/AJuskys/Full_Stack_Engineer-Reddit_Client/blob/main/reddit-client-loading-slow.webp" />
+
 ## Description
 For this project, we will be using the [Reddit JSON API](https://github.com/reddit-archive/reddit/wiki/JSON). There is no maintained documentation but the API is simple enough to use. We will provide you with some pointers on how to use it.
 
@@ -73,8 +75,6 @@ Check out these helpful resources:
 
 ### Example Code
 Want to see an example of how someone else has completed this project? Click this [link to download a zip file containing one example solution to this project](https://static-assets.codecademy.com/Paths/front-end-career-path/reddit-client/reddit-client-master.zip). Remember: your project doesn’t have to look anything like this! It should be unique to your vision.
-
-<img src="" />
 
 ## Resources
 * netlify.app [Example Project](https://reddit-client.netlify.app/)
