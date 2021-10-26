@@ -1,5 +1,7 @@
 # Full Stack Engineer - Reddit Client
 ### CodeCademy | Full Stack Engineer
+insert into working `React-Redux` environment to run<br />
+`npx create-react-app reddit-app --template redux`
 
 ## Description
 For this project, we will be using the [Reddit JSON API](https://github.com/reddit-archive/reddit/wiki/JSON). There is no maintained documentation but the API is simple enough to use. We will provide you with some pointers on how to use it.
