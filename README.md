@@ -81,6 +81,7 @@ Want to see an example of how someone else has completed this project? Click thi
 ## Resources
 * netlify.app [Example Project](https://reddit-client.netlify.app/)
 
+
 * Wikipedia: [Scope creep](https://en.wikipedia.org/wiki/Scope_creep)
 * [Create React App](https://create-react-app.dev/)
 * [Create React App with Redux Flag](https://redux-toolkit.js.org/introduction/getting-started#using-create-react-app)
