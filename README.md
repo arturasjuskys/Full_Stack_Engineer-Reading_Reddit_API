@@ -75,17 +75,17 @@ Check out these helpful resources:
 
 ### Example Code
 Want to see an example of how someone else has completed this project? Click this [link to download a zip file containing one example solution to this project](https://static-assets.codecademy.com/Paths/front-end-career-path/reddit-client/reddit-client-master.zip). Remember: your project doesn’t have to look anything like this! It should be unique to your vision.
+<img src="https://github.com/AJuskys/Full_Stack_Engineer-Reddit_Client/blob/main/reddit-client-loading-slow.webp" />
 
+## Wireframes
 <img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Wireframe-Mobile.PNG" />
 <img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Wireframe-PC.PNG" />
 
-<img src="https://github.com/AJuskys/Full_Stack_Engineer-Reddit_Client/blob/main/reddit-client-loading-slow.webp" />
+### Capture.PNG
+<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Capture.PNG" />
 
 ## Resources
 * netlify.app [Example Project](https://reddit-client.netlify.app/)
-
-<br />
-
 * Wikipedia: [Scope creep](https://en.wikipedia.org/wiki/Scope_creep)
 * create-react-app.dev: [Create React App](https://create-react-app.dev/)
 * redux-toolkit.js.org: [Create React App with Redux Flag](https://redux-toolkit.js.org/introduction/getting-started#using-create-react-app)
