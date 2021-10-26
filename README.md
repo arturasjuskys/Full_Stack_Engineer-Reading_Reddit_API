@@ -84,8 +84,8 @@ Want to see an example of how someone else has completed this project? Click thi
 <br />
 
 * Wikipedia: [Scope creep](https://en.wikipedia.org/wiki/Scope_creep)
-* [Create React App](https://create-react-app.dev/)
-* [Create React App with Redux Flag](https://redux-toolkit.js.org/introduction/getting-started#using-create-react-app)
+* create-react-app.dev: [Create React App](https://create-react-app.dev/)
+* redux-toolkit.js.org: [Create React App with Redux Flag](https://redux-toolkit.js.org/introduction/getting-started#using-create-react-app)
 * Git: [cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 * Codecademy: [Learn Git](https://www.codecademy.com/learn/learn-git)
 * Reddit: [Official API](https://www.reddit.com/dev/api/)
