@@ -76,6 +76,9 @@ Check out these helpful resources:
 ### Example Code
 Want to see an example of how someone else has completed this project? Click this [link to download a zip file containing one example solution to this project](https://static-assets.codecademy.com/Paths/front-end-career-path/reddit-client/reddit-client-master.zip). Remember: your project doesn’t have to look anything like this! It should be unique to your vision.
 
+<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Wireframe-Mobile.PNG" />
+<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Wireframe-PC.PNG" />
+
 <img src="https://github.com/AJuskys/Full_Stack_Engineer-Reddit_Client/blob/main/reddit-client-loading-slow.webp" />
 
 ## Resources
