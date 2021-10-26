@@ -58,12 +58,6 @@ The Reddit API will return some user content (comments) in Markdown. You should 
 * Command line and file navigation
 * Wireframing
 
-## Debugging Tips + Helpful Resources
-Feeling stuck? Try the following:
-* <i>Google your question</i>: oftentimes, someone has had the same question as you! Check out websites like <i>StackOverflow</i> and <i>Quora</i> to see how other folks have found solutions.
-* <i>Read the documentation</i>: make sure to carefully read through the documentation for any languages and libraries that you are using. Oftentimes they’ll have examples of what you’re looking for!
-* <i>Rubber ducking</i>: try to explain a problem to a friend or co-worker. Oftentimes you’ll figure out the solution as you’re trying to explain it. And if not, getting another pair of eyes on your code can be helpful.
-
 Check out these helpful resources:
 * [Thinking About Errors in Your Code Differently](https://www.codecademy.com/content-items/673d70052fe5627f2222ab7840b4c5db)
 * [Intro to Chrome Devtools](https://www.codecademy.com/content-items/8e57b181e3c4a62b70476bd76ab11624)
@@ -73,17 +67,21 @@ Check out these helpful resources:
 * [React Developer Tools](https://www.codecademy.com/paths/build-web-apps-with-react/tracks/bwa-intro-to-react/modules/ravenous-part-one/informationals/ready-react-developer-tools)
 * [Redux DevTools Extension](https://www.codecademy.com/content-items/698c535e3cdf6ce8484bd34138341767)
 
-### Example Code
+## Wireframes & Capture.PNG
+<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Capture.png" />
+<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Wireframe-Mobile.PNG" />
+<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Wireframe-PC.PNG" />
+
+## Example Code
 Want to see an example of how someone else has completed this project? Click this [link to download a zip file containing one example solution to this project](https://static-assets.codecademy.com/Paths/front-end-career-path/reddit-client/reddit-client-master.zip). Remember: your project doesn’t have to look anything like this! It should be unique to your vision.
 
 <img src="https://github.com/AJuskys/Full_Stack_Engineer-Reddit_Client/blob/main/reddit-client-loading-slow.webp" />
 
-## Wireframes
-<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Wireframe-Mobile.PNG" />
-<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Wireframe-PC.PNG" />
-
-### Capture.PNG
-<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Capture.png" />
+## Debugging Tips + Helpful Resources
+Feeling stuck? Try the following:
+* <i>Google your question</i>: oftentimes, someone has had the same question as you! Check out websites like <i>StackOverflow</i> and <i>Quora</i> to see how other folks have found solutions.
+* <i>Read the documentation</i>: make sure to carefully read through the documentation for any languages and libraries that you are using. Oftentimes they’ll have examples of what you’re looking for!
+* <i>Rubber ducking</i>: try to explain a problem to a friend or co-worker. Oftentimes you’ll figure out the solution as you’re trying to explain it. And if not, getting another pair of eyes on your code can be helpful.
 
 ## Resources
 * netlify.app [Example Project](https://reddit-client.netlify.app/)
