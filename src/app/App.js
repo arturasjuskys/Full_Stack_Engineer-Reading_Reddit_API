@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import ArticlePreviews from '../features/articlePreviews/ArticlePreviews';
-import Aside from '../features/aside/Aside';
+import AsidePreview from '../features/asidePreview/AsidePreview';
 
 function App() {
   return (
     <div className="App">
       <ArticlePreviews />
-      <Aside />
+      <AsidePreview />
     </div>
   );
 }
