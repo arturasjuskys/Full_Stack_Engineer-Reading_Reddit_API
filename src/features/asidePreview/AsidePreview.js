@@ -13,7 +13,7 @@ export default function Aside () {
   const subreddits = useSelector(selectAllSubreddits);
   const isLoading = useSelector(isLoadingSubreddits);
 
-  console.log('subreddits', subreddits);
+  // console.log('subreddits', subreddits);
 
   useEffect(() => {
     dispatch(loadAllSubreddits());
