@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Home",
+    "img": "http://www.w3.org/2000/svg"
+  },
+  {
+    "id": 2,
+    "name": "news",
+    "img": "/img/news"
+  },
+  {
+    "id": 3,
+    "name": "funny",
+    "img": "/img/funny"
+  },
+  {
+    "id": 4,
+    "name": "memes",
+    "img": "/img/memes"
+  },
+  {
+    "id": 5,
+    "name": "gaming",
+    "img": "/img/gaming"
+  }
+]
