@@ -67,10 +67,13 @@ Check out these helpful resources:
 * [React Developer Tools](https://www.codecademy.com/paths/build-web-apps-with-react/tracks/bwa-intro-to-react/modules/ravenous-part-one/informationals/ready-react-developer-tools)
 * [Redux DevTools Extension](https://www.codecademy.com/content-items/698c535e3cdf6ce8484bd34138341767)
 
-## Wireframes & Capture.PNG
-<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Capture.png" />
+## Mobile - Wireframe & Capture
 <img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Wireframe-Mobile.PNG" />
+<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Capture01.png" />
+
+## PC - Wireframe & Capture
 <img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Wireframe-PC.PNG" />
+<img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/static-react-app/Capture02.png" />
 
 ## Example Code
 Want to see an example of how someone else has completed this project? Click this [link to download a zip file containing one example solution to this project](https://static-assets.codecademy.com/Paths/front-end-career-path/reddit-client/reddit-client-master.zip). Remember: your project doesn’t have to look anything like this! It should be unique to your vision.
