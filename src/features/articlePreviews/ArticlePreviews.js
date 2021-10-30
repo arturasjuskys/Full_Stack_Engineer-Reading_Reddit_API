@@ -23,10 +23,9 @@ export default function Post() {
           <h2>The largest hotel in the world, with a staggering 10,000 rooms is currently under construction in Saudi Arabia.</h2>
           <img src="https://i.redd.it/l1xsgziquqv71.jpg" alt="alt" />
           {/* <p>Full Article Text</p> */}
-          <div>
+          <div className="comments-container">
             <button>Comments</button>
-            <button>Share</button>
-          </div>
+          </div>        
         </div>
       </article>
 
@@ -45,9 +44,8 @@ export default function Post() {
           </div>
           <h2>The last text messege you sent will be inscribed on your tombstone. What will it say?</h2>
           {/* <p>Full Article Text</p> */}
-          <div>
+          <div className="comments-container">
             <button>Comments</button>
-            <button>Share</button>
           </div>
         </div>
       </article>
@@ -72,8 +70,10 @@ export default function Post() {
           <h3>WHAT ARE THE BEST NEW PIXEL FEATURES?</h3>
           <p>Now for the good stuff. Let’s have a look at how and why the new Pixel phones have been built to give you the most personalised experience you’ve ever had with your phone.</p>
           <img src="https://preview.redd.it/p6qx8acxggu71.png?width=2000&format=png&auto=webp&s=069c8609c33cb6269f9ca7d3ce4d217428a8d544" alt="advert banner" />
-          <button>Comments</button>
-          <button>Share</button>
+          <div className="comments-container">
+            <button>Comments</button>
+            <button>Share</button>
+          </div>
         </div>
       </article>
 

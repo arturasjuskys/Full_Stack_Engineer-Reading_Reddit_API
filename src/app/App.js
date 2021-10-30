@@ -6,8 +6,12 @@ import AsidePreview from '../features/asidePreview/AsidePreview';
 function App() {
   return (
     <div className="App">
-      <ArticlePreviews />
-      <AsidePreview />
+      <div className="app-articles">
+        <ArticlePreviews />
+      </div>
+      <div className="app-aside">
+        <AsidePreview />
+        </div>
     </div>
   );
 }
