@@ -1,0 +1,164 @@
+body {
+  background: #dae0e6;
+}
+
+* {
+  /* border: solid 1px yellowgreen; */
+  box-sizing: border-box;
+}
+
+#root {
+  /* width: 800px; */
+  /* margin: 0 auto; */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+h1 {
+  text-align: center;
+}
+
+h1, h2, h3, .ratings-container p {
+  color: #2e2d2d;
+}
+
+p {
+  color: #6e6e6e;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*******************************************************************************************/
+/* RATINGS */
+
+.ratings-container {
+  display: flex;
+  flex-direction: column;
+  width: 3em;
+  padding: 1.5em .5em;
+  /* padding-top: 4em; */
+  background: #f8f9fa;
+  /* border-right: dotted 1px gray; */
+  border-radius: .5em 0 0 .5em;
+}
+
+.arrow-up, .arrow-down {
+  /* border: solid 1px red; */
+  padding: 0 .2em 0 .2em;
+  width: 2.5em;
+  /* padding: 1em; */
+}
+
+.ratings-container p {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0 .2em;
+  margin: 0;
+}
+
+/*******************************************************************************************/
+/* ARTICLE */
+
+article, .ratings-container, .article-container, .comments-container {
+  /* border: solid 1px green; */
+}
+
+article {
+  display: flex;
+  border-radius: .5em;
+  margin: .5em;
+  
+}
+
+.article-container {
+  padding: 1em;
+  /* width: 30em; */
+  background: white;
+  border-radius: 0 .5em .5em 0;
+}
+
+.header-container {
+  display: flex;
+  /* padding: 0; */
+  margin: 0;
+}
+
+.article-container h2 {
+  margin: 0 0 .5em 0;
+  /* border: solid 1px red; */
+}
+
+.article-container h3 {
+  margin: 1em 0 .2em 0;
+}
+
+.article-container p {
+  margin: 0;
+}
+
+.header-container a, .header-container p {
+  /* padding: .2em; */
+  margin: 0;
+  /* border: solid 1px red; */
+}
+
+.comments-container button {
+  padding: .5em 2em;
+  margin: .5em .5em 0 0;
+  border: none;
+  font-weight: bold;
+  background: #f8f9fa;
+}
+
+/*******************************************************************************************/
+/* ASIDE */
+
+#aside {
+  background: white;
+  border-radius: .5em;
+  margin: .5em;
+  padding: 1em;
+}
+
+#aside h2 {
+  margin: 0;
+}
+
+#aside ul {
+  margin: 0;
+  padding: 0;
+}
+
+#aside li {
+  list-style: none;
+  margin: .5em;
+}
+
+/*******************************************************************************************/
+/* MEDIA QUESRIES */
+
+@media only screen and (min-width:650px) {
+  .app-articles, .app-aside {
+    /* border: solid 1px red; */
+
+  }
+
+  .App {
+    display: flex;
+  }
+
+  .app-aside {
+    padding-top: 4.5em;
+  }  
+}
+
+@media only screen and (min-width: 1000px) {
+  .App {
+    max-width: 1000px;
+  }
+}
