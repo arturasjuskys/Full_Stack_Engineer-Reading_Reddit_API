@@ -5,7 +5,6 @@ export const loadAllPreviews = createAsyncThunk(
   async () => {
     const data = await fetch('/articles.json');
     const json = await data.json();
-    // console.log('json: ', json);
     return json;
   }
 );
@@ -13,9 +12,9 @@ export const loadAllPreviews = createAsyncThunk(
 export const loadFromReddit = createAsyncThunk(
   'articlePreviews/loadfromReddit',
   async () => {
-    const data = await fetch('https://www.reddit.com/new.json');
+    const data = await fetch('https://www.reddit.com/r/funny.json');
     const json = await data.json();
-    return json;
+    return json.data.children.map((article) => article.data);
   }
 );
 

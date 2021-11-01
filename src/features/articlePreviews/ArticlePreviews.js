@@ -14,7 +14,7 @@ export default function ArticlePreviews() {
   // const articlePreviews = useSelector(selectAllPreviews);
   const articlesFromReddit = useSelector(selectFromReddit);
   const isLoadingPreviews = useSelector(isLoading);
-
+  console.log(articlesFromReddit);
   
   useEffect(() => {
     // dispatch(loadAllPreviews());
@@ -23,7 +23,7 @@ export default function ArticlePreviews() {
   
   // console.log('articles:', articlePreviews);
   // console.log('from Reddit:', articlesFromReddit);
-  console.log('Reddit:', articlesFromReddit);
+  // console.log('Reddit:', articlesFromReddit);
 
   if (isLoadingPreviews) {
     return <div>Loading state...</div>
@@ -44,8 +44,8 @@ export default function ArticlePreviews() {
   return (
     <>
       <h1>From Reddit</h1>
-      {articlesFromReddit.data.children.map((article) => {
-        return <FullArticle article={article.data} />
+      {articlesFromReddit.map((article) => {
+        return <FullArticle article={article} />
       })}
     </>
   );
