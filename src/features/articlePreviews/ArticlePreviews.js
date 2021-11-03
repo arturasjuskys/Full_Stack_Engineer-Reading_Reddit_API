@@ -4,8 +4,9 @@ import {
   // selectAllPreviews,
   selectFromReddit,
   // loadAllPreviews,
-  loadFromReddit,
-  isLoading
+  // loadFromReddit,
+  isLoading,
+  loadFromMemes
 } from "./articlePreviewsSlice";
 import FullArticle from '../../components/FullArticle';
 
@@ -14,12 +15,17 @@ export default function ArticlePreviews() {
   // const articlePreviews = useSelector(selectAllPreviews);
   const articlesFromReddit = useSelector(selectFromReddit);
   const isLoadingPreviews = useSelector(isLoading);
-  console.log(articlesFromReddit);
+  let subredditName = 'Reddit';
   
   useEffect(() => {
     // dispatch(loadAllPreviews());
-    dispatch(loadFromReddit())
+    dispatch(loadFromMemes())
   }, [dispatch]);
+  console.log(articlesFromReddit);
+
+  if (articlesFromReddit.length > 0) {
+    subredditName = articlesFromReddit[0].subreddit;
+  }
   
   // console.log('articles:', articlePreviews);
   // console.log('from Reddit:', articlesFromReddit);
@@ -43,7 +49,8 @@ export default function ArticlePreviews() {
 
   return (
     <>
-      <h1>From Reddit</h1>
+      <h1>From {subredditName}</h1>
+      {/* <h1>From {articlesFromReddit[0].subreddit}</h1> */}
       {articlesFromReddit.map((article) => {
         return <FullArticle article={article} />
       })}

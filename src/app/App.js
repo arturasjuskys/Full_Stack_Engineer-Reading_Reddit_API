@@ -11,7 +11,7 @@ function App() {
       </div>
       <div className="app-aside">
         <AsidePreview />
-        </div>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+export const API_ROOT = 'https://www.reddit.com';
+
 export const loadAllPreviews = createAsyncThunk(
   'articlePreviews/loadAllPreviews',
   async () => {
@@ -9,10 +11,10 @@ export const loadAllPreviews = createAsyncThunk(
   }
 );
 
-export const loadFromReddit = createAsyncThunk(
+export const loadFromMemes = createAsyncThunk(
   'articlePreviews/loadfromReddit',
   async () => {
-    const data = await fetch('https://www.reddit.com/r/funny.json');
+    const data = await fetch(`${API_ROOT}/r/memes.json`);
     const json = await data.json();
     return json.data.children.map((article) => article.data);
   }
@@ -40,16 +42,16 @@ export const articlePreviewsSlice = createSlice({
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = true;
     },
-    [loadFromReddit.pending]: (state, action) => {
+    [loadFromMemes.pending]: (state, action) => {
       state.isLoadingPreviews = true;
       state.failedToLoadPreviews = false;
     },
-    [loadFromReddit.fulfilled]: (state, action) => {
+    [loadFromMemes.fulfilled]: (state, action) => {
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = false;
       state.articlesFromReddit = action.payload;
     },
-    [loadFromReddit.rejected]: (state, action) => {
+    [loadFromMemes.rejected]: (state, action) => {
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = true;
     },
