@@ -6,7 +6,10 @@ import {
   // loadAllPreviews,
   // loadFromReddit,
   isLoading,
-  loadFromMemes
+  loadFromHome,
+  loadFromMemes,
+  loadFromFunny,
+  loadFromGaming
 } from "./articlePreviewsSlice";
 import FullArticle from '../../components/FullArticle';
 
@@ -19,40 +22,26 @@ export default function ArticlePreviews() {
   
   useEffect(() => {
     // dispatch(loadAllPreviews());
-    dispatch(loadFromMemes())
+    // dispatch(loadFromMemes())
+    dispatch(loadFromFunny())
+    // dispatch(loadFromGaming())
+    // dispatch(loadFromHome())
   }, [dispatch]);
   console.log(articlesFromReddit);
 
   if (articlesFromReddit.length > 0) {
     subredditName = articlesFromReddit[0].subreddit;
   }
-  
-  // console.log('articles:', articlePreviews);
-  // console.log('from Reddit:', articlesFromReddit);
-  // console.log('Reddit:', articlesFromReddit);
 
   if (isLoadingPreviews) {
     return <div>Loading state...</div>
   }
 
-  // From mock .json file
-  // return (
-  //   <>
-  //     <section>
-  //       <h1>All Reddit Client Articles</h1>
-  //       {articlePreviews.map((article) => {
-  //         return <FullArticle article={article} key={article.id} />
-  //       })}
-  //     </section>
-  //   </>
-  // );
-
   return (
     <>
       <h1>From {subredditName}</h1>
-      {/* <h1>From {articlesFromReddit[0].subreddit}</h1> */}
       {articlesFromReddit.map((article) => {
-        return <FullArticle article={article} />
+        return <FullArticle article={article} key={article.id} />
       })}
     </>
   );

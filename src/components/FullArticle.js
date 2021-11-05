@@ -1,6 +1,19 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 // import { loadFromReddit } from '../features/articlePreviews/articlePreviewsSlice';
 // Actual Article
+
+const Media = (article) => {
+  if (!article.url_overridden_by_dest) return null;
+  if (article.url_overridden_by_dest) {
+    if (article.url_overridden_by_dest.includes('.jpg')) {
+      return <img src={article.url} alt="alt" />
+    }
+  }
+  if (article.post_hint) {
+    return 'This Reddit post contains embedded video/gif'
+  }
+};
 
 export default function FullArticle({ article }) {
   return (
@@ -18,8 +31,8 @@ export default function FullArticle({ article }) {
           <p>{` ${article.created}`}</p>
         </div>
         <h2>{article.title ? article.title : 'Title not found'}</h2>
-        {article.img ? <img src={article.img} alt="alt" /> : null}
-        {article.selftext ? article.selftext : article.link_flair_text}
+        {Media(article)}
+        {article.selftext ? <ReactMarkdown children={article.selftext} /> : null}
         <div className="comments-container">
           <button>Comments</button>
           <a href={`http://reddit.com/${article.permalink}`} target="_blank" rel="noopener noreferrer">Open in reddit.com</a>

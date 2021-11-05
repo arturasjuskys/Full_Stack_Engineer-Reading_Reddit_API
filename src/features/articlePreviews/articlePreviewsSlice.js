@@ -11,10 +11,37 @@ export const loadAllPreviews = createAsyncThunk(
   }
 );
 
+export const loadFromHome = createAsyncThunk(
+  'articlePreviews/loadFromReddit',
+  async () => {
+    const data = await fetch(`${API_ROOT}/r/Home.json`);
+    const json = await data.json();
+    return json.data.children.map((article) => article.data);
+  }
+);
+
 export const loadFromMemes = createAsyncThunk(
-  'articlePreviews/loadfromReddit',
+  'articlePreviews/loadFromMemes',
   async () => {
     const data = await fetch(`${API_ROOT}/r/memes.json`);
+    const json = await data.json();
+    return json.data.children.map((article) => article.data);
+  }
+);
+
+export const loadFromFunny = createAsyncThunk(
+  'articlePreviews/loadFromFunny',
+  async () => {
+    const data = await fetch(`${API_ROOT}/r/funny.json`);
+    const json = await data.json();
+    return json.data.children.map((article) => article.data);
+  }
+);
+
+export const loadFromGaming = createAsyncThunk(
+  'articlePreviews/loadFromGaming',
+  async () => {
+    const data = await fetch(`${API_ROOT}/r/gaming.json`);
     const json = await data.json();
     return json.data.children.map((article) => article.data);
   }
@@ -52,6 +79,45 @@ export const articlePreviewsSlice = createSlice({
       state.articlesFromReddit = action.payload;
     },
     [loadFromMemes.rejected]: (state, action) => {
+      state.isLoadingPreviews = false;
+      state.failedToLoadPreviews = true;
+    },
+    [loadFromFunny.pending]: (state, action) => {
+      state.isLoadingPreviews = true;
+      state.failedToLoadPreviews = false;
+    },
+    [loadFromFunny.fulfilled]: (state, action) => {
+      state.isLoadingPreviews = false;
+      state.failedToLoadPreviews = false;
+      state.articlesFromReddit = action.payload;
+    },
+    [loadFromFunny.rejected]: (state, action) => {
+      state.isLoadingPreviews = false;
+      state.failedToLoadPreviews = true;
+    },
+    [loadFromGaming.pending]: (state, action) => {
+      state.isLoadingPreviews = true;
+      state.failedToLoadPreviews = false;
+    },
+    [loadFromGaming.fulfilled]: (state, action) => {
+      state.isLoadingPreviews = false;
+      state.failedToLoadPreviews = false;
+      state.articlesFromReddit = action.payload;
+    },
+    [loadFromGaming.rejected]: (state, action) => {
+      state.isLoadingPreviews = false;
+      state.failedToLoadPreviews = true;
+    },
+    [loadFromHome.pending]: (state, action) => {
+      state.isLoadingPreviews = true;
+      state.failedToLoadPreviews = false;
+    },
+    [loadFromHome.fulfilled]: (state, action) => {
+      state.isLoadingPreviews = false;
+      state.failedToLoadPreviews = false;
+      state.articlesFromReddit = action.payload;
+    },
+    [loadFromHome.rejected]: (state, action) => {
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = true;
     },
