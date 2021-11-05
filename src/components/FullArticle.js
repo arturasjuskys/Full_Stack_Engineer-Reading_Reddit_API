@@ -15,6 +15,24 @@ const Media = (article) => {
   }
 };
 
+const postedDate = (article) => {
+  const timeStamp = article.created;
+  const time = new Date(timeStamp * 1000);
+  // const now = new Date();
+  // const howLongAgo = now - time;
+  console.log(time);
+  // console.log(howLongAgo);
+  // console.log(timeStamp.toString());
+  console.log(`${time.getFullYear()} ${time.getMonth()} ${time.getDay()} ${time.getHours()}`);
+  // if (time.getDay() < 2) return `${time.getHours()} hours ago`;
+  // if (time.getMonth() < 2 || time.getDay() > 2) {
+  //   return `${time.getDay()} days ago`;
+  return time.toUTCString();
+  // }
+};
+
+// postedDate();
+
 export default function FullArticle({ article }) {
   return (
     <article>
@@ -28,7 +46,8 @@ export default function FullArticle({ article }) {
           <a href="/" className="collection">{article.subreddit ? article.subreddit : 'Collection not found'}</a>
           <p>Posted by</p>
           <a href="/" className="user">{article.author ? article.author : 'Author not found'}</a>
-          <p>{` ${article.created}`}</p>
+          {/* <p>{` ${article.created}`}</p> */}
+          <p>{postedDate(article)}</p>
         </div>
         <h2>{article.title ? article.title : 'Title not found'}</h2>
         {Media(article)}
@@ -41,6 +60,3 @@ export default function FullArticle({ article }) {
     </article>
   );
 };
-
-// https://www.reddit.com/r/cataclysmdda/comments/qj3l0a/should_i_turn_on_monster_evolution/
-// https://www.reddit.com/r/cataclysmdda/comments/qj3l0a/should_i_turn_on_monster_evolution/
