@@ -38,7 +38,7 @@ export default function FullArticle({ article }) {
     <article>
       <div className="ratings-container">
         <img className="arrow-up" src="/img/arrow-up.png" alt="upvote arrow" />
-        <p>{article.score ? article.score : 'Rating not found'}</p>
+        <p>{article.score ? article.score : 0}</p>
         <img className="arrow-down" src="/img/arrow-down.png" alt="down vote arrow" />
       </div>
       <div className="article-container">
@@ -54,7 +54,7 @@ export default function FullArticle({ article }) {
         {article.selftext ? <ReactMarkdown children={article.selftext} /> : null}
         <div className="comments-container">
           <button>Comments</button>
-          <a href={`http://reddit.com/${article.permalink}`} target="_blank" rel="noopener noreferrer">Open in reddit.com</a>
+          <button><a href={`http://reddit.com/${article.permalink}`} target="_blank" rel="noopener noreferrer">Reddit</a></button>
         </div>
       </div>
     </article>
