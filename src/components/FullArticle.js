@@ -20,10 +20,10 @@ const postedDate = (article) => {
   const time = new Date(timeStamp * 1000);
   // const now = new Date();
   // const howLongAgo = now - time;
-  console.log(time);
+  // console.log(time);
   // console.log(howLongAgo);
   // console.log(timeStamp.toString());
-  console.log(`${time.getFullYear()} ${time.getMonth()} ${time.getDay()} ${time.getHours()}`);
+  // console.log(`${time.getFullYear()} ${time.getMonth()} ${time.getDay()} ${time.getHours()}`);
   // if (time.getDay() < 2) return `${time.getHours()} hours ago`;
   // if (time.getMonth() < 2 || time.getDay() > 2) {
   //   return `${time.getDay()} days ago`;

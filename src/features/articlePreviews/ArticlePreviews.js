@@ -6,10 +6,10 @@ import {
   // loadAllPreviews,
   // loadFromReddit,
   isLoading,
-  loadFromHome,
-  loadFromMemes,
+  // loadFromHome,
+  // loadFromMemes,
   loadFromFunny,
-  loadFromGaming
+  // loadFromGaming
 } from "./articlePreviewsSlice";
 import FullArticle from '../../components/FullArticle';
 
@@ -27,7 +27,7 @@ export default function ArticlePreviews() {
     // dispatch(loadFromGaming())
     // dispatch(loadFromHome())
   }, [dispatch]);
-  console.log(articlesFromReddit);
+  // console.log(articlesFromReddit);
 
   if (articlesFromReddit.length > 0) {
     subredditName = articlesFromReddit[0].subreddit;
@@ -39,7 +39,7 @@ export default function ArticlePreviews() {
 
   return (
     <>
-      <h1>From {subredditName}</h1>
+      <h1>r/{subredditName}</h1>
       {articlesFromReddit.map((article) => {
         return <FullArticle article={article} key={article.id} />
       })}
