@@ -72,12 +72,12 @@ article {
   display: flex;
   border-radius: .5em;
   margin: .5em;
-  
+  /* width: 100%; */
 }
 
 .article-container {
   padding: 1em;
-  /* width: 30em; */
+  width: 100%;
   background: white;
   border-radius: 0 .5em .5em 0;
 }

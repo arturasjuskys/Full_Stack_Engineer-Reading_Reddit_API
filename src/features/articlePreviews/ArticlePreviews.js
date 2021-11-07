@@ -1,22 +1,37 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectAllPreviews,
-  loadAllPreviews,
-  isLoading
+  // selectAllPreviews,
+  selectFromReddit,
+  // loadAllPreviews,
+  // loadFromReddit,
+  isLoading,
+  // loadFromHome,
+  // loadFromMemes,
+  loadFromFunny,
+  // loadFromGaming
 } from "./articlePreviewsSlice";
 import FullArticle from '../../components/FullArticle';
 
 export default function ArticlePreviews() {
   const dispatch = useDispatch();
-  const articlePreviews = useSelector(selectAllPreviews);
+  // const articlePreviews = useSelector(selectAllPreviews);
+  const articlesFromReddit = useSelector(selectFromReddit);
   const isLoadingPreviews = useSelector(isLoading);
-
-  // console.log('articles:', articlePreviews);
-
+  let subredditName = 'Reddit';
+  
   useEffect(() => {
-    dispatch(loadAllPreviews());
+    // dispatch(loadAllPreviews());
+    // dispatch(loadFromMemes())
+    dispatch(loadFromFunny())
+    // dispatch(loadFromGaming())
+    // dispatch(loadFromHome())
   }, [dispatch]);
+  // console.log(articlesFromReddit);
+
+  if (articlesFromReddit.length > 0) {
+    subredditName = articlesFromReddit[0].subreddit;
+  }
 
   if (isLoadingPreviews) {
     return <div>Loading state...</div>
@@ -24,12 +39,10 @@ export default function ArticlePreviews() {
 
   return (
     <>
-      <section>
-        <h1>All Reddit Client Articles</h1>
-        {articlePreviews.map((article) => {
-          return <FullArticle article={article} key={article.id} />
-        })}
-      </section>
+      <h1>r/{subredditName}</h1>
+      {articlesFromReddit.map((article) => {
+        return <FullArticle article={article} key={article.id} />
+      })}
     </>
   );
 };
