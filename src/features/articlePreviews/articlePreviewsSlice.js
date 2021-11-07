@@ -126,5 +126,6 @@ export const articlePreviewsSlice = createSlice({
 
 export const selectAllPreviews = (state) => state.articlePreviews.articles;
 export const selectFromReddit = (state) => state.articlePreviews.articlesFromReddit;
+export const selectSearchTerm = (state) => state.articlePreviews.searchTerm;
 export const isLoading = (state) => state.isLoadingPreviews;
 export default articlePreviewsSlice.reducer;
