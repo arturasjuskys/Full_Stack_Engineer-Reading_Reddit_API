@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   // selectAllPreviews,
-  selectFromReddit,
+  // selectFromReddit,
+  selectSearchTerm,
   // loadAllPreviews,
   // loadFromReddit,
   isLoading,
@@ -11,15 +12,14 @@ import {
   loadFromFunny,
   // loadFromGaming
 } from "./articlePreviewsSlice";
-import FullArticle from '../../components/FullArticle';
+// import FullArticle from '../../components/FullArticle';
+import SearchPreview from '../../components/Search';
 
 export default function ArticlePreviews() {
   const dispatch = useDispatch();
-  // const articlePreviews = useSelector(selectAllPreviews);
-  const articlesFromReddit = useSelector(selectFromReddit);
+  const searchTerm = useSelector(selectSearchTerm);
   const isLoadingPreviews = useSelector(isLoading);
-  let subredditName = 'Reddit';
-  
+
   useEffect(() => {
     // dispatch(loadAllPreviews());
     // dispatch(loadFromMemes())
@@ -27,11 +27,6 @@ export default function ArticlePreviews() {
     // dispatch(loadFromGaming())
     // dispatch(loadFromHome())
   }, [dispatch]);
-  // console.log(articlesFromReddit);
-
-  if (articlesFromReddit.length > 0) {
-    subredditName = articlesFromReddit[0].subreddit;
-  }
 
   if (isLoadingPreviews) {
     return <div>Loading state...</div>
@@ -39,10 +34,7 @@ export default function ArticlePreviews() {
 
   return (
     <>
-      <h1>r/{subredditName}</h1>
-      {articlesFromReddit.map((article) => {
-        return <FullArticle article={article} key={article.id} />
-      })}
+      <SearchPreview searchTerm={searchTerm} />
     </>
   );
 };

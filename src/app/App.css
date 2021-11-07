@@ -34,6 +34,51 @@ img {
 }
 
 /*******************************************************************************************/
+/* NAV */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: lightslategray;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: solid 1px red; */
+  height: 3em;
+  width: 100%;
+  padding: .5em;
+}
+
+.searchField {
+  background: #dae0e6;
+  /* border: solid 1px green; */
+  border: none;
+  border-radius: .5em;
+  padding: .5em;
+  /* color: black; */
+  width: 50%;
+  max-width: 20em;
+}
+
+.subreddit-title {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.app-aside {
+  padding-top: 3em;
+}
+
+.app-articles {
+  /* padding-top: 3em; */
+}
+
+/*******************************************************************************************/
 /* RATINGS */
 
 .ratings-container {
@@ -143,22 +188,40 @@ article {
 /* MEDIA QUESRIES */
 
 @media only screen and (min-width:650px) {
-  .app-articles, .app-aside {
-    /* border: solid 1px red; */
-
-  }
-
   .App {
     display: flex;
+    flex-direction: row-reverse;
   }
 
-  .app-aside {
-    padding-top: 4.5em;
-  }  
+  .app-articles {
+    /* border: solid 1px red; */
+    padding-top: 3em;
+  }
+
+  .subreddit-title {
+    font-size: 2em;
+    padding-bottom: .2em;
+  }
+
+  .searchField {
+    width: 20em;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
   .App {
     max-width: 1000px;
+  }
+
+  nav {
+    width: 100%;
+    /* border: solid 1px red; */
+    /* justify-content: space-evenly; */
+  }
+  
+  .nav-container {
+    /* border: soid 1px blue; */
+    max-width: 1000px;
+    margin: 0 auto
   }
 }
