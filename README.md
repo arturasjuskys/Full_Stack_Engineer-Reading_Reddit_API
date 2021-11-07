@@ -21,22 +21,22 @@ Notice here you didn’t add `.json` at the end of the URL. You actually added i
 The Reddit API will return some user content (comments) in Markdown. You should find a way to display the Markdown in your application.
 
 ## Project Requirements
-* Build the application using React and Redux
-* Version control your application with Git and host the repository on GitHub
-* Use a project management tool (GitHub Projects, Trello, etc.) to plan your work
+* ~~Build the application using React and Redux~~
+* ~~Version control your application with Git and host the repository on GitHub~~
+* ~~Use a project management tool (GitHub Projects, Trello, etc.) to plan your work~~
 * Write a README (using Markdown) that documents your project including:
-  * Wireframes
+  * ~~Wireframes~~
   * Technologies used
   * Features
   * Future work
 * Write unit tests for your components using Jest and Enzyme
 * Write end-to-end tests for your application
-* Users can use the application on any device (desktop to mobile)
-* Users can use the application on any modern browser
+* ~~Users can use the application on any device (desktop to mobile)~~
+* ~~Users can use the application on any modern browser~~
 * Users can access your application at a URL
-* Users see an initial view of the data when first visiting the app
+* ~~Users see an initial view of the data when first visiting the app~~
 * Users can search the data using terms
-* Users can filter the data based on categories that are predefined
+* ~~Users can filter the data based on categories that are predefined~~
 * Users are shown a detail view (modal or new page/route) when they select an item
 * Users are delighted with a cohesive design system
 * Users are delighted with animations and transitions
@@ -69,11 +69,9 @@ Check out these helpful resources:
 
 ## Mobile - Wireframe & Capture
 <img src="public/img/Wireframe-Mobile.PNG" />
-<!-- <img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/main/Capture01.png" /> -->
 
 ## PC - Wireframe & Capture
 <img src="public/img/Wireframe-PC.PNG" />
-<!-- <img src="https://github.com/AJuskys/Full_Stack_Engineer-Protfolio_Project-Reddit_Client/blob/main/Capture02.png" /> -->
 
 ## PC - Working Progress
 <img src="public/img/Capture-working-progress.png" />
