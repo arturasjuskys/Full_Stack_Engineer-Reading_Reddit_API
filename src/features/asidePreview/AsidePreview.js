@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   loadFromSubreddit,
-  selectSubredditTitle,
+  // selectSubredditTitle,
 } from '../articlePreviews/articlePreviewsSlice';
 import {
   isLoadingSubreddits,
@@ -10,6 +10,7 @@ import {
 }
 from "./asidePreviewSlice";
 import AsideListItem from './AsideListItem';
+import { Link } from 'react-router-dom';
 
 export default function AsidePreview () {
   const dispatch = useDispatch();
@@ -30,10 +31,14 @@ export default function AsidePreview () {
       <h2>Subreddits</h2>
         <ul onClick={handleClick}>
           {subreddits.map((subreddit) => {
-            return <AsideListItem
-              key={subreddit.title}
-              subreddit={subreddit}
-              />
+            return (
+              <Link to="/">
+                <AsideListItem
+                  key={subreddit.title}
+                  subreddit={subreddit}
+                />
+              </Link>
+            )
           })}
         </ul>
     </aside>

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useSelector } from "react-redux";
+import React from 'react';
+// import { useSelector } from "react-redux";
 import {
-  selectAllArticles,
+  // selectAllArticles,
 } from '../articlePreviews/articlePreviewsSlice';
-import FullArticle from '../../components/FullArticle';
+// import FullArticle from '../../components/FullArticle';
 
 export default function SearchPreview () {
   // const [searchTerm, setSearchTerm] = useState("");

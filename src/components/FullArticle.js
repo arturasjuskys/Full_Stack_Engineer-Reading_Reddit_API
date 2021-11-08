@@ -1,62 +1,55 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
-// import { loadFromReddit } from '../features/articlePreviews/articlePreviewsSlice';
-// Actual Article
+// import 
+import {
+  selectAllArticles
+} from '../features/articlePreviews/articlePreviewsSlice'
 
-const Media = (article) => {
-  if (!article.url_overridden_by_dest) return null;
-  if (article.url_overridden_by_dest) {
-    if (article.url_overridden_by_dest.includes('.jpg')) {
-      return <img src={article.url} alt="alt" />
+export default function FullArticle() {
+  const articles = useSelector(selectAllArticles);
+
+  const getArticle = () => {
+    const currentURL = window.location.href;
+    const id = currentURL.slice(-6);
+    const article = articles.filter((article) => article.id === id)[0];
+    return article;
+  };
+  const article = getArticle();
+
+  const getImg = () => {
+    const img = article.url;
+    console.log(img);
+    if (img.includes('.jpg') || img.includes('.png')) {
+      return <img className="full-article-img" src={article.url} alt="post" />;
+    } else {
+      return;
     }
-  }
-  if (article.post_hint) {
-    return 'This Reddit post contains embedded video/gif'
-  }
-};
+  };
 
-const postedDate = (article) => {
-  const timeStamp = article.created;
-  const time = new Date(timeStamp * 1000);
-  // const now = new Date();
-  // const howLongAgo = now - time;
-  // console.log(time);
-  // console.log(howLongAgo);
-  // console.log(timeStamp.toString());
-  // console.log(`${time.getFullYear()} ${time.getMonth()} ${time.getDay()} ${time.getHours()}`);
-  // if (time.getDay() < 2) return `${time.getHours()} hours ago`;
-  // if (time.getMonth() < 2 || time.getDay() > 2) {
-  //   return `${time.getDay()} days ago`;
-  return time.toUTCString();
-  // }
-};
-
-// postedDate();
-
-export default function FullArticle({ article }) {
   return (
-    <article>
-      <div className="ratings-container">
-        <img className="arrow-up" src="/img/arrow-up.png" alt="upvote arrow" />
-        <p>{article.score ? article.score : 0}</p>
-        <img className="arrow-down" src="/img/arrow-down.png" alt="down vote arrow" />
+    <article className="full-article">
+      <div className="article-score">
+        <img className="score-icon" src="/img/arrow-up.png" alt="vote-up" />
+        <p className="score">{article.score}</p>
+        <img className="score-icon" src="/img/arrow-down.png" alt="vote-down" />
       </div>
       <div className="article-container">
-        <div className="header-container">
-          <a href="/" className="collection">{article.subreddit ? article.subreddit : 'Collection not found'}</a>
-          <p>Posted by</p>
-          <a href="/" className="user">{article.author ? article.author : 'Author not found'}</a>
-          {/* <p>{` ${article.created}`}</p> */}
-          <p>{postedDate(article)}</p>
+        <div className="full-article-info">
+          <p className="posted-by">Posted by u/{article.author}</p>
+          <h2 className="full-title">{article.title}</h2>
         </div>
-        <h2>{article.title ? article.title : 'Title not found'}</h2>
-        {Media(article)}
-        {article.selftext ? <ReactMarkdown children={article.selftext} /> : null}
-        <div className="comments-container">
-          <button>Comments</button>
-          <button><a href={`http://reddit.com/${article.permalink}`} target="_blank" rel="noopener noreferrer">Reddit</a></button>
+        {getImg()}
+        <ReactMarkdown>{article.selftext}</ReactMarkdown>
+        <div className="info-comments">
+          <img className="comments-icon" src="/img/comment.png" alt="comments icon" />
+          <p className="comments">2.4k comments</p>
+          <a className="open-reddit" rel="noreferrer" target="_blank" href={`http://reddit.com/${article.permalink}`}>Open in Reddit</a>
+        </div>
+        <div className="loaded-comments">
+
         </div>
       </div>
     </article>
-  );
+    );
 };
