@@ -1,63 +1,40 @@
 import React, { useEffect } from 'react';
-// import { Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  loadFromHome,
-  loadFromMemes,
-  loadFromFunny,
-  loadFromGaming
+  loadFromSubreddit,
+  selectSubredditTitle,
 } from '../articlePreviews/articlePreviewsSlice';
-// import { loadFromMemes } from '../articlePreviews/articlePreviewsSlice';
 import {
-  loadSubreddit,
   isLoadingSubreddits,
-  // selectAllSubreddits
+  selectAllSubreddits,
 }
 from "./asidePreviewSlice";
-// import Subreddit from '../../components/Subreddit';
+import AsideListItem from './AsideListItem';
 
-export default function Aside () {
+export default function AsidePreview () {
   const dispatch = useDispatch();
-  // const subreddits = useSelector(selectAllSubreddits);
   const isLoading = useSelector(isLoadingSubreddits);
-
-  useEffect(() => {
-    dispatch(loadSubreddit());
-  }, [dispatch]);
-
-  // console.log('subreddits', subreddits);
-  const handleClickHome = (e) => {
-    e.preventDefault();
-    dispatch(loadFromHome());
-  };
-
-  const handleClickMemes = (e) => {
-    e.preventDefault();
-    dispatch(loadFromMemes());
-  };
-
-  const handleClickFunny = (e) => {
-    e.preventDefault();
-    dispatch(loadFromFunny());
-  };
-
-  const handleClickGaming = (e) => {
-    e.preventDefault();
-    dispatch(loadFromGaming());
-  };
-
+  const subreddits = useSelector(selectAllSubreddits);
+  
   if (isLoading) {
     return <div>Loading Subreddits</div>
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(loadFromSubreddit(e.target.innerHTML));
+  };
+
   return (
-    <aside id="aside">
+    <aside className="main-aside">
       <h2>Subreddits</h2>
-        <ul>
-          <li><a href="/" onClick={handleClickHome}>Home</a></li>
-          <li><a href="/" onClick={handleClickMemes}>memes</a></li>
-          <li><a href="/" onClick={handleClickFunny}>funny</a></li>
-          <li><a href="/" onClick={handleClickGaming}>gaming</a></li>
+        <ul onClick={handleClick}>
+          {subreddits.map((subreddit) => {
+            return <AsideListItem
+              key={subreddit.title}
+              subreddit={subreddit}
+              />
+          })}
         </ul>
     </aside>
   );
