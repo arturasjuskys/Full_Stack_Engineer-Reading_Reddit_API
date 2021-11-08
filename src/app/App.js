@@ -1,19 +1,19 @@
 import React from 'react';
 import './App.css';
-import ArticlePreviews from '../features/articlePreviews/ArticlePreviews';
 import AsidePreview from '../features/asidePreview/AsidePreview';
+// import Nav from '../features/nav/Nav';
+import ArticlePreviews from '../features/articlePreviews/ArticlePreviews';
 
-function App() {
+function App () {
   return (
     <div className="App">
-      <div className="app-aside">
+      {/* <Nav /> */}
+      <div className="App-main">
         <AsidePreview />
-      </div>
-      <div className="app-articles">
         <ArticlePreviews />
       </div>
     </div>
   );
-}
+};
 
 export default App;

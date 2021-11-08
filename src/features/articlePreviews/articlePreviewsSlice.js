@@ -15,7 +15,6 @@ export const articlePreviewsSlice = createSlice({
   name: 'articlePreviews',
   initialState: {
     articles: [],
-    articlesFromReddit: [],
     subredditLogos: {},
     subredditTitle: 'funny',
     isLoadingPreviews: false,
@@ -29,7 +28,7 @@ export const articlePreviewsSlice = createSlice({
     [loadFromSubreddit.fulfilled]: (state, action) => {
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = false;
-      state.articlesFromReddit = action.payload;
+      state.articles = action.payload;
     },
     [loadFromSubreddit.rejected]: (state, action) => {
       state.isLoadingPreviews = false;
@@ -38,10 +37,8 @@ export const articlePreviewsSlice = createSlice({
   }
 });
 
-export const selectAllPreviews = (state) => state.articlePreviews.articles;
-export const selectFromReddit = (state) => state.articlePreviews.articlesFromReddit;
+export const selectAllArticles = (state) => state.articlePreviews.articles;
 export const selectSearchTerm = (state) => state.articlePreviews.searchTerm;
-export const selectSubredditLogos = (state) => state.articlePreviews.subredditLogos;
 export const selectSubredditTitle = (state) => state.articlePreviews.subredditTitle;
-export const isLoading = (state) => state.isLoadingPreviews;
+export const isLoading = (state) => state.articlePreviews.isLoadingPreviews;
 export default articlePreviewsSlice.reducer;

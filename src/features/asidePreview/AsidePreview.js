@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   loadFromSubreddit,
+  selectSubredditTitle,
 } from '../articlePreviews/articlePreviewsSlice';
 import {
   isLoadingSubreddits,
+  selectAllSubreddits,
 }
 from "./asidePreviewSlice";
+import AsideListItem from './AsideListItem';
 
-export default function Aside () {
+export default function AsidePreview () {
   const dispatch = useDispatch();
   const isLoading = useSelector(isLoadingSubreddits);
-
+  const subreddits = useSelector(selectAllSubreddits);
+  
   if (isLoading) {
     return <div>Loading Subreddits</div>
   };
@@ -22,13 +26,15 @@ export default function Aside () {
   };
 
   return (
-    <aside id="aside">
+    <aside className="main-aside">
       <h2>Subreddits</h2>
-        <ul>
-          <li><a href="/" onClick={handleClick}>Home</a></li>
-          <li><a href="/" onClick={handleClick}>memes</a></li>
-          <li><a href="/" onClick={handleClick}>funny</a></li>
-          <li><a href="/" onClick={handleClick}>gaming</a></li>
+        <ul onClick={handleClick}>
+          {subreddits.map((subreddit) => {
+            return <AsideListItem
+              key={subreddit.title}
+              subreddit={subreddit}
+              />
+          })}
         </ul>
     </aside>
   );
