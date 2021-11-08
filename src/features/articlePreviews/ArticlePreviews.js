@@ -1,18 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  // selectAllPreviews,
-  // selectFromReddit,
   selectSearchTerm,
-  // loadAllPreviews,
-  // loadFromReddit,
   isLoading,
-  // loadFromHome,
-  // loadFromMemes,
-  loadFromFunny,
-  // loadFromGaming
+  loadFromSubreddit
 } from "./articlePreviewsSlice";
-// import FullArticle from '../../components/FullArticle';
 import SearchPreview from '../../components/Search';
 
 export default function ArticlePreviews() {
@@ -21,11 +13,7 @@ export default function ArticlePreviews() {
   const isLoadingPreviews = useSelector(isLoading);
 
   useEffect(() => {
-    // dispatch(loadAllPreviews());
-    // dispatch(loadFromMemes())
-    dispatch(loadFromFunny())
-    // dispatch(loadFromGaming())
-    // dispatch(loadFromHome())
+    dispatch(loadFromSubreddit('funny'))
   }, [dispatch]);
 
   if (isLoadingPreviews) {

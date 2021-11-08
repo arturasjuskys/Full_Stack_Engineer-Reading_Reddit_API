@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { selectFromReddit } from '../features/articlePreviews/articlePreviewsSlice';
 import { useSelector } from "react-redux";
+import {
+  selectFromReddit,
+} from '../features/articlePreviews/articlePreviewsSlice';
 import FullArticle from './FullArticle';
 
 export default function SearchPreview () {
-  const articlesFromReddit = useSelector(selectFromReddit);
   const [searchTerm, setSearchTerm] = useState("");
-  let subredditTitle = 'Reddit';
-  if (articlesFromReddit.length > 0) {
-    subredditTitle = articlesFromReddit[0].subreddit_name_prefixed;
-  }
+  const articlesFromReddit = useSelector(selectFromReddit);
+  
   const filteredArticles = articlesFromReddit.filter(article => {
     return (
       article.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -17,9 +16,8 @@ export default function SearchPreview () {
       article.selftext.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
-  console.log(searchTerm);
-  const handleChange = (e) => {
 
+  const handleChange = (e) => {
     setSearchTerm(e.target.value);
   };
   
@@ -27,7 +25,9 @@ export default function SearchPreview () {
     <>
       <nav>
         <div className="nav-container">
-          <h1 className="subreddit-title">{subredditTitle}</h1>
+          <div className="logo-subreddit-container">
+            <h1 className="subreddit-title">funny</h1>
+          </div>
           <input
             className="searchField"
             type="search"
