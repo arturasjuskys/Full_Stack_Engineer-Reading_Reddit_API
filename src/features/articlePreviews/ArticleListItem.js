@@ -29,8 +29,8 @@ export default function ArticleListItem ({article}) {
           <h2 className="info-title">{article.title}</h2>
         </Link>
         <div className="info-comments">
-          <img className="comments-icon" src="/img/comment.png" alt="comments icon" />
-          <p className="comments">2.4k comments</p>
+          {/* <img className="comments-icon" src="/img/comment.png" alt="comments icon" /> */}
+          {/* <p className="comments">2.4k comments</p> */}
         </div>
       </div>
     </article>

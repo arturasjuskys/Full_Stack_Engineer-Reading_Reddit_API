@@ -59,7 +59,7 @@ export default function FullArticle() {
         <ReactMarkdown>{article.selftext}</ReactMarkdown>
         <div className="info-comments">
           <img className="comments-icon" src="/img/comment.png" alt="comments icon" />
-          <p className="comments">2.4k comments</p>
+          <p className="comments">For comments</p>
           <a className="open-reddit" rel="noreferrer" target="_blank" href={`http://reddit.com/${article.permalink}`}>Open in Reddit</a>
         </div>
       </div>
