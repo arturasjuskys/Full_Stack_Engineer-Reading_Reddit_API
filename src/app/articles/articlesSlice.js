@@ -48,7 +48,7 @@ export const articlesSlice = createSlice({
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = true;
     },
-  }
+  },
 });
 
 export const selectAllArticles = (state) => state.main.articles;

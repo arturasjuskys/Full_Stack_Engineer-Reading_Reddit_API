@@ -14,15 +14,15 @@ export default function Aside () {
     return <div>Loading Subreddits</div>
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    dispatch(loadArticles(e.target.innerHTML));
-  };
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   dispatch(loadArticles(e.target.innerHTML));
+  // };
 
   return (
     <aside className="main-aside">
       <h2>Subreddits</h2>
-        <ul onClick={handleClick}>
+        <ul>
           {subreddits.map((subreddit, index) => {
             return (
               <Link key={index} to="/">
