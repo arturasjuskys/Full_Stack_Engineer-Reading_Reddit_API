@@ -1,18 +1,14 @@
 import React from 'react';
 import './App.css';
-import AsidePreview from '../features/asidePreview/AsidePreview';
-// import Nav from '../features/nav/Nav';
-// import ArticlePreviews from '../features/articlePreviews/ArticlePreviews';
+import Aside from '../features/aside/Aside';
 import Main from './Main';
 
 function App () {
   return (
     <div className="App">
-      {/* <Nav /> */}
       <div className="App-main">
-        <AsidePreview />
+        <Aside />
         <Main />
-        {/* <ArticlePreviews /> */}
       </div>
     </div>
   );

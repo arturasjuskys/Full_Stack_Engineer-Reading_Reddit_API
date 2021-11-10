@@ -1,18 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  loadFromSubreddit,
-  // selectSubredditTitle,
-} from '../articlePreviews/articlePreviewsSlice';
-import {
-  isLoadingSubreddits,
-  selectAllSubreddits,
-}
-from "./asidePreviewSlice";
-import AsideListItem from './AsideListItem';
 import { Link } from 'react-router-dom';
+import { loadArticles } from '../articles/articlesSlice';
+import { isLoadingSubreddits, selectAllSubreddits } from "./asideSlice";
+import AsideListItem from './AsideListItem';
 
-export default function AsidePreview () {
+export default function Aside () {
   const dispatch = useDispatch();
   const isLoading = useSelector(isLoadingSubreddits);
   const subreddits = useSelector(selectAllSubreddits);
@@ -23,7 +16,7 @@ export default function AsidePreview () {
 
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch(loadFromSubreddit(e.target.innerHTML));
+    dispatch(loadArticles(e.target.innerHTML));
   };
 
   return (

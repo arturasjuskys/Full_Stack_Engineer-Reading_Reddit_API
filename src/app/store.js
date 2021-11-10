@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import articlePreviewsReducer from '../features/articlePreviews/articlePreviewsSlice';
-import asidePreviewReducer from '../features/asidePreview/asidePreviewSlice';
+import articlesReducer from '../features/articles/articlesSlice';
+import asidePreviewReducer from '../features/aside/asideSlice';
 
 export const store = configureStore({
   reducer: {
-    articlePreviews: articlePreviewsReducer,
-    asidePreviews: asidePreviewReducer,
+    main: articlesReducer,
+    aside: asidePreviewReducer,
   },
 });

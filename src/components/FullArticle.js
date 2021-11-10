@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
-import { selectAllArticles } from '../features/articlePreviews/articlePreviewsSlice'
+import { selectAllArticles } from '../features/articles/articlesSlice'
 
 export default function FullArticle() {
   const articles = useSelector(selectAllArticles);

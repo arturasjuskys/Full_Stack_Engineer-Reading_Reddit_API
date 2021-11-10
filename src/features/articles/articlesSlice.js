@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const API_ROOT = 'https://www.reddit.com';
 
-export const loadFromSubreddit = createAsyncThunk(
-  'articlePreviews/loadFromSubreddit',
+export const loadArticles = createAsyncThunk(
+  'articles/loadArticles',
   async (subreddit) => {
     const data = await fetch(`${API_ROOT}/r/${subreddit}.json`);
     const json = await data.json();
@@ -11,34 +11,35 @@ export const loadFromSubreddit = createAsyncThunk(
   }
 );
 
-export const articlePreviewsSlice = createSlice({
-  name: 'articlePreviews',
+export const articlesSlice = createSlice({
+  name: 'main',
   initialState: {
     articles: [],
+    article:{},
     subredditLogos: {},
     subredditTitle: 'funny',
     isLoadingPreviews: false,
     failedToLoadPreviews: false,
   },
   extraReducers: {
-    [loadFromSubreddit.pending]: (state, action) => {
+    [loadArticles.pending]: (state, action) => {
       state.isLoadingPreviews = true;
       state.failedToLoadPreviews = false;
     },
-    [loadFromSubreddit.fulfilled]: (state, action) => {
+    [loadArticles.fulfilled]: (state, action) => {
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = false;
       state.articles = action.payload;
     },
-    [loadFromSubreddit.rejected]: (state, action) => {
+    [loadArticles.rejected]: (state, action) => {
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = true;
     },
   }
 });
 
-export const selectAllArticles = (state) => state.articlePreviews.articles;
-export const selectSearchTerm = (state) => state.articlePreviews.searchTerm;
-export const selectSubredditTitle = (state) => state.articlePreviews.subredditTitle;
-export const isLoading = (state) => state.articlePreviews.isLoadingPreviews;
-export default articlePreviewsSlice.reducer;
+export const selectAllArticles = (state) => state.main.articles;
+export const selectSearchTerm = (state) => state.articles.searchTerm;
+export const selectSubredditTitle = (state) => state.main.subredditTitle;
+export const isLoading = (state) => state.main.isLoadingPreviews;
+export default articlesSlice.reducer;

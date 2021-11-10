@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const asideSlice = createSlice({
-  name: 'asidePreviews',
+  name: 'aside',
   initialState: {
     isLoadingSubreddits: false,
     failedToLoadSubreddits: false,
@@ -26,6 +26,6 @@ export const asideSlice = createSlice({
   },
 });
 
-export const isLoadingSubreddits = (state) => state.asidePreviews.isLoadingSubreddits;
-export const selectAllSubreddits = (state) => state.asidePreviews.subreddits;
+export const isLoadingSubreddits = (state) => state.aside.isLoadingSubreddits;
+export const selectAllSubreddits = (state) => state.aside.subreddits;
 export default asideSlice.reducer;

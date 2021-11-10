@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   isLoading,
-  loadFromSubreddit,
+  loadArticles,
   selectSubredditTitle,
   selectAllArticles,
-} from "./articlePreviewsSlice";
+} from "./articlesSlice";
 import ArticleListItem from './ArticleListItem';
 
 export default function ArticlePreviews() {
@@ -16,7 +16,7 @@ export default function ArticlePreviews() {
   // console.log();
 
   useEffect(() => {
-    dispatch(loadFromSubreddit(subredditTitle))
+    dispatch(loadArticles(subredditTitle))
   }, [dispatch, subredditTitle]);
 
   if (isLoadingPreviews) {

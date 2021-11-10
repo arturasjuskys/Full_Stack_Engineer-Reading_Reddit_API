@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from 'react-router-dom';
-import ArticlePreviews from "../features/articlePreviews/ArticlePreviews";
+import ArticlePreviews from "../features/articles/Article";
 import FullArticle from '../components/FullArticle';
 
 export default function Main () {
