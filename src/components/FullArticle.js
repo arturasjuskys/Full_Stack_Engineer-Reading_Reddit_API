@@ -13,11 +13,11 @@ export default function FullArticle() {
     return article;
   };
   const article = getArticle();
-  console.log(article);
+  // console.log(article);
 
   const getImg = () => {
     const img = article.url;
-    console.log(img);
+    // console.log(img);
     if (img.includes('.jpg') || img.includes('.png')) {
       return <img className="full-article-img" src={article.url} alt="post" />;
     } else {
@@ -30,12 +30,12 @@ export default function FullArticle() {
     const video = article.media.reddit_video.fallback_url;
     const height = article.media.reddit_video.height;
     const width = article.media.reddit_video.width;
-    const result = {
-      url: video,
-      height,
-      width,
-    };
-    console.log(result);
+    // const result = {
+    //   url: video,
+    //   height,
+    //   width,
+    // };
+    // console.log(result);
     return <video width={width} height={height} controls>
       <source src={video} type="video/mp4" />
     </video>

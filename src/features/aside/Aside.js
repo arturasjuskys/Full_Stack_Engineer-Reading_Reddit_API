@@ -23,15 +23,12 @@ export default function Aside () {
     <aside className="main-aside">
       <h2>Subreddits</h2>
         <ul onClick={handleClick}>
-          {subreddits.map((subreddit) => {
+          {subreddits.map((subreddit, index) => {
             return (
-              <Link to="/">
-                <AsideListItem
-                  key={subreddit.title}
-                  subreddit={subreddit}
-                />
+              <Link key={index} to="/">
+                <AsideListItem subreddit={subreddit} />
               </Link>
-            )
+            );
           })}
         </ul>
     </aside>

@@ -11,11 +11,24 @@ export const loadArticles = createAsyncThunk(
   }
 );
 
+export const loadArticle = createAsyncThunk(
+  'article/loadArticle',
+  async (id) => {
+    const data = await fetch(`https://api.reddit.com/api/info/?id=t3_${id}`);
+    const json = await data.json();
+    console.log(json);
+    return json;
+  }
+);
+
 export const articlesSlice = createSlice({
   name: 'main',
   initialState: {
     articles: [],
-    article:{},
+    article:{
+      id: '',
+      data: {},
+    },
     subredditLogos: {},
     subredditTitle: 'funny',
     isLoadingPreviews: false,

@@ -8,18 +8,22 @@ export const asideSlice = createSlice({
     subreddits: [
       {
         title: 'Home',
+        id: 1,
         icon: '',
       },
       {
         title: 'memes',
+        id: 2,
         icon: '',
       },
       {
         title: 'funny',
+        id: 3,
         icon: '',
       },
       {
         title: 'gaming',
+        id: 4,
         icon: '',
       },
     ],

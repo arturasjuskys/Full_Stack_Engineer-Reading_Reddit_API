@@ -5,6 +5,7 @@ import {
   loadArticles,
   selectSubredditTitle,
   selectAllArticles,
+  // loadArticle,
 } from "./articlesSlice";
 import ArticleListItem from './ArticleListItem';
 
@@ -13,16 +14,17 @@ export default function ArticlePreviews() {
   const isLoadingPreviews = useSelector(isLoading);
   const subredditTitle = useSelector(selectSubredditTitle);
   const allArticles = useSelector(selectAllArticles)
-  // console.log();
-
+  // console.log(window.location);  
+  
   useEffect(() => {
     dispatch(loadArticles(subredditTitle))
+    // dispatch(loadArticle());
   }, [dispatch, subredditTitle]);
-
+  
   if (isLoadingPreviews) {
     return <div>Loading state...</div>
   }
-
+  
   return (
     <main className="main-articles">
       {allArticles.map((article) => {
