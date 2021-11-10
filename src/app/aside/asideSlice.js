@@ -5,6 +5,7 @@ export const asideSlice = createSlice({
   initialState: {
     isLoadingSubreddits: false,
     failedToLoadSubreddits: false,
+    subreddit: '',
     subreddits: [
       {
         title: 'Home',
@@ -24,8 +25,14 @@ export const asideSlice = createSlice({
       },
     ],
   },
+  reducers: {
+    updateSubreddit(state, action) {
+      state.subreddit = action.payload;
+    },
+  }
 });
 
+export const { updateSubreddit } = asideSlice.actions;
 export const isLoadingSubreddits = (state) => state.aside.isLoadingSubreddits;
 export const selectAllSubreddits = (state) => state.aside.subreddits;
 export default asideSlice.reducer;

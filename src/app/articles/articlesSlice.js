@@ -75,7 +75,6 @@ export const articlesSlice = createSlice({
 export const { removeArticle } = articlesSlice.actions;
 export const selectArticles = (state) => state.main.articles;
 export const selectArticle = (state) => state.main.article;
-export const selectSearchTerm = (state) => state.articles.searchTerm;
-export const selectSubredditTitle = (state) => state.main.subredditTitle;
+export const selectSubreddit = (state) => state.main.subredditTitle;
 export const isLoading = (state) => state.main.isLoadingPreviews;
 export default articlesSlice.reducer;

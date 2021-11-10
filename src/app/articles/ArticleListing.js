@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ArticleListItem from "./ArticleListItem";
-import { loadArticles } from "./articlesSlice";
+import { loadArticles, selectSubreddit } from "./articlesSlice";
 
 export default function Articles() {
   const dispatch = useDispatch();
+  const title = useSelector(selectSubreddit);
 
   useEffect(() => {
-    dispatch(loadArticles('funny'));
+    dispatch(loadArticles(title));
   }, [dispatch]);
 
   return (
