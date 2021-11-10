@@ -16,8 +16,8 @@ export const loadArticle = createAsyncThunk(
   async (id) => {
     const data = await fetch(`https://api.reddit.com/api/info/?id=t3_${id}`);
     const json = await data.json();
-    console.log(json);
-    return json;
+    // console.log('Article', json.data.children[0].data);
+    return json.data.children[0].data;
   }
 );
 
@@ -34,7 +34,13 @@ export const articlesSlice = createSlice({
     isLoadingPreviews: false,
     failedToLoadPreviews: false,
   },
+  reducer: {
+    removeArticle(state) {
+      state.main.article.data = {};
+    },
+  },
   extraReducers: {
+    // All Articles
     [loadArticles.pending]: (state, action) => {
       state.isLoadingPreviews = true;
       state.failedToLoadPreviews = false;
@@ -48,10 +54,27 @@ export const articlesSlice = createSlice({
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = true;
     },
+    // One Article
+    [loadArticle.pending]: (state, action) => {
+      state.isLoadingPreviews = true;
+      state.failedToLoadPreviews = false;
+    },
+    [loadArticle.fulfilled]: (state, action) => {
+      state.isLoadingPreviews = false;
+      state.failedToLoadPreviews = false;
+      state.article.id = action.payload.id;
+      state.article.data = action.payload;
+    },
+    [loadArticle.rejected]: (state, action) => {
+      state.isLoadingPreviews = false;
+      state.failedToLoadPreviews = true;
+    },
   },
 });
 
-export const selectAllArticles = (state) => state.main.articles;
+export const { removeArticle } = articlesSlice.actions;
+export const selectArticles = (state) => state.main.articles;
+export const selectArticle = (state) => state.main.article;
 export const selectSearchTerm = (state) => state.articles.searchTerm;
 export const selectSubredditTitle = (state) => state.main.subredditTitle;
 export const isLoading = (state) => state.main.isLoadingPreviews;
