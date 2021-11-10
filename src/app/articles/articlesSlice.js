@@ -25,6 +25,7 @@ export const articlesSlice = createSlice({
   name: 'main',
   initialState: {
     articles: [],
+    searchedArticles: [],
     article:{
       id: '',
       data: {},
@@ -34,10 +35,13 @@ export const articlesSlice = createSlice({
     isLoadingPreviews: false,
     failedToLoadPreviews: false,
   },
-  reducer: {
+  reducers: {
     removeArticle(state) {
       state.main.article.data = {};
     },
+    searchArticles(state, action) {
+      state.searchedArticles = action.payload;
+    }
   },
   extraReducers: {
     // All Articles
@@ -49,6 +53,7 @@ export const articlesSlice = createSlice({
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = false;
       state.articles = action.payload;
+      state.searchedArticles = action.payload;
     },
     [loadArticles.rejected]: (state, action) => {
       state.isLoadingPreviews = false;
@@ -72,8 +77,9 @@ export const articlesSlice = createSlice({
   },
 });
 
-export const { removeArticle } = articlesSlice.actions;
+export const { removeArticle, searchArticles } = articlesSlice.actions;
 export const selectArticles = (state) => state.main.articles;
+export const selectSearchedArticles = (state) => state.main.searchedArticles;
 export const selectArticle = (state) => state.main.article;
 export const selectSubreddit = (state) => state.main.subredditTitle;
 export const isLoading = (state) => state.main.isLoadingPreviews;
