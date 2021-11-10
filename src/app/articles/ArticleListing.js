@@ -9,11 +9,10 @@ export default function Articles() {
 
   useEffect(() => {
     dispatch(loadArticles(title));
-  }, [dispatch]);
+  }, [dispatch, title]);
 
   return (
     <main className="main-articles">
-      <p>Article Listing</p>
       <ArticleListItem />
     </main>
   );
