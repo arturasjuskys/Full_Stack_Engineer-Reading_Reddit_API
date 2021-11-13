@@ -3,13 +3,15 @@ import ReactMarkdown from 'react-markdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { loadArticle, selectArticle } from './articlesSlice';
+import { displayDatePosted } from './ArticleListItem';
 
 export default function ArticleDetails() {
   const article = useSelector(selectArticle);
   const { score, title, selftext, author, url } = article.data;
   const dispatch = useDispatch();
   const { id: articleId } = useParams();
-  // console.log(article);
+  const current = Date.now();
+  console.log(article);
 
   const getImg = () => {
     if (!url) return;
@@ -44,7 +46,7 @@ export default function ArticleDetails() {
       </div>
       <div className="article-container">
         <div className="full-article-info">
-          <p className="posted-by">Posted by u/{author}</p>
+        <p className="posted-by">Posted by u/{author} {displayDatePosted(current, article.data)}</p>
           <h2 className="full-title">{title}</h2>
         </div>
         {getImg()}

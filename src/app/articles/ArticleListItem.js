@@ -4,9 +4,34 @@ import { Link } from 'react-router-dom';
 import { selectArticles } from "./articlesSlice";
 import { selectSearchTerm } from "../nav/navSlice";
 
+export const displayDatePosted = (current, article) => {
+  const msPerMinute = 60 * 1000;
+  const msPerHour = msPerMinute * 60;
+  const msPerDay = msPerHour * 24;
+  const msPerMonth = msPerDay * 30;
+  const msPerYear = msPerMonth * 365;
+  const elapsed = current - article.created * 1000;
+
+  if (elapsed < msPerMinute) {
+    return Math.round(elapsed / 1000) + ' seconds ago';
+  } else if (elapsed < msPerHour) {
+    return Math.round(elapsed / msPerMinute) + ' minutes ago';
+  } else if (elapsed < msPerDay) {
+    return Math.round(elapsed / msPerHour) + ' hours ago';
+  } else if (elapsed < msPerMonth) {
+    return 'approximately ' + Math.round(elapsed / msPerDay) + ' days ago';
+  } else if (elapsed < msPerYear) {
+    return 'approximately ' + Math.round(elapsed / msPerMonth) + ' months ago';
+  } else {
+    return 'approximately ' + Math.round(elapsed / msPerYear) + ' years ago';
+  };
+};
+
 export default function ArticleListItem () {
   const articles = useSelector(selectArticles);
   const searchTerm = useSelector(selectSearchTerm);
+  const current = Date.now();
+  // console.log(current);
 
   const searchedArticles = articles.filter(article => {
     return (
@@ -17,7 +42,8 @@ export default function ArticleListItem () {
     });
 
   const renderListItem = searchedArticles.map((article) => {
-    const { id, score, title, thumbnail } = article;
+    const { id, score, title, thumbnail, author } = article;
+    // console.log(article);
     
     const getThumbnail = () => {
       if (thumbnail.includes('.jpg')) {
@@ -36,9 +62,12 @@ export default function ArticleListItem () {
         </div>
         {getThumbnail()}
         <div className="article-info">
-          <Link to={id}>
-            <h2 className="info-title">{title}</h2>
-          </Link>
+          <div className="full-article-info">
+            <p className="posted-by">Posted by u/{author} {displayDatePosted(current, article)}</p>
+            <Link to={id}>
+              <h2 className="full-title">{title}</h2>
+            </Link>
+          </div>
           <div className="info-comments"></div>
         </div>
       </article>
