@@ -16,7 +16,6 @@ export const loadArticle = createAsyncThunk(
   async (id) => {
     const data = await fetch(`https://api.reddit.com/api/info/?id=t3_${id}`);
     const json = await data.json();
-    // console.log('Article', json.data.children[0].data);
     return json.data.children[0].data;
   }
 );
@@ -44,11 +43,7 @@ export const articlesSlice = createSlice({
     isLoadingPreviews: false,
     failedToLoadPreviews: false,
   },
-  reducers: {
-    removeArticle(state) {
-      state.main.article.data = {};
-    }
-  },
+  reducers: {},
   extraReducers: {
     // All Articles
     [loadArticles.pending]: (state, action) => {
