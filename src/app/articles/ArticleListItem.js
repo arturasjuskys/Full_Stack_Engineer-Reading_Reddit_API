@@ -2,15 +2,22 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import { selectArticles } from "./articlesSlice";
+import { selectSearchTerm } from "../nav/navSlice";
 
 export default function ArticleListItem () {
   const articles = useSelector(selectArticles);
-  // console.log(articles);
+  const searchTerm = useSelector(selectSearchTerm);
 
-  const renderListItem = articles.map((article) => {
+  const searchedArticles = articles.filter(article => {
+    return (
+      article.title.toLowerCase().includes(searchTerm.toLowerCase())
+      ||
+      article.selftext.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
+
+  const renderListItem = searchedArticles.map((article) => {
     const { id, score, title, thumbnail } = article;
-    // console.log(article);
-    // console.log(thumbnail);
     
     const getThumbnail = () => {
       if (thumbnail.includes('.jpg')) {
