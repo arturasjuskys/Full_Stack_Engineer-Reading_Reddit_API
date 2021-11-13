@@ -2,16 +2,26 @@ import React, { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { loadArticle, selectArticle } from './articlesSlice';
+import { loadArticle, loadComments, selectArticle, selectComments } from './articlesSlice';
 import { displayDatePosted } from './ArticleListItem';
 
 export default function ArticleDetails() {
-  const article = useSelector(selectArticle);
-  const { score, title, selftext, author, url } = article.data;
   const dispatch = useDispatch();
+  const  article = useSelector(selectArticle);
+  const { score, title, selftext, author, url, permalink } = article.data;
   const { id: articleId } = useParams();
   const current = Date.now();
-  console.log(article);
+  const comments = useSelector(selectComments);
+  // console.log(article);
+  console.log(comments);
+  // console.log(loadedComments);
+
+  const countComments = () => {
+    let count;
+    if(!comments[0]) return;
+    count = comments[0].data.children[0].data.num_comments;
+    return count;
+  };
 
   const getImg = () => {
     if (!url) return;
@@ -34,6 +44,7 @@ export default function ArticleDetails() {
   useEffect(() => {
     if (articleId && articleId !== '') {
       dispatch(loadArticle(articleId))
+      dispatch(loadComments(articleId));
     } 
   }, [dispatch, articleId]);
 
@@ -54,8 +65,8 @@ export default function ArticleDetails() {
         <ReactMarkdown>{selftext}</ReactMarkdown>
         <div className="info-comments">
           <img className="comments-icon" src="/img/comment.png" alt="comments icon" />
-          <p className="comments">For comments</p>
-          <a className="open-reddit" rel="noreferrer" target="_blank" href="/">Open in Reddit</a>
+          <p className="comments">{countComments()} comments</p>
+          <a className="open-reddit" rel="noreferrer" target="_blank" href={`http://www.reddit.com${permalink}`}>Open in Reddit</a>
         </div>
       </div>
     </article>

@@ -21,6 +21,15 @@ export const loadArticle = createAsyncThunk(
   }
 );
 
+export const loadComments = createAsyncThunk(
+  'article/loadComments',
+  async (id) => {
+    const data = await fetch(`https://www.reddit.com/comments/${id}.json`);
+    const json = await data.json();
+    return json;
+  }
+);
+
 export const articlesSlice = createSlice({
   name: 'main',
   initialState: {
@@ -28,6 +37,7 @@ export const articlesSlice = createSlice({
     article:{
       id: '',
       data: {},
+      comments: {},
     },
     subredditLogos: {},
     subredditTitle: 'funny',
@@ -70,12 +80,27 @@ export const articlesSlice = createSlice({
       state.isLoadingPreviews = false;
       state.failedToLoadPreviews = true;
     },
+    // Comments
+    [loadComments.pending]: (state, action) => {
+      state.isLoadingPreviews = true;
+      state.failedToLoadPreviews = false;
+    },
+    [loadComments.fulfilled]: (state, action) => {
+      state.isLoadingPreviews = false;
+      state.failedToLoadPreviews = false;
+      state.article.comments = action.payload;
+    },
+    [loadComments.rejected]: (state, action) => {
+      state.isLoadingPreviews = false;
+      state.failedToLoadPreviews = true;
+    },
   },
 });
 
 export const { removeArticle } = articlesSlice.actions;
 export const selectArticles = (state) => state.main.articles;
 export const selectArticle = (state) => state.main.article;
+export const selectComments = (state) => state.main.article.comments;
 export const selectSubreddit = (state) => state.main.subredditTitle;
 export const isLoading = (state) => state.main.isLoadingPreviews;
 export default articlesSlice.reducer;
