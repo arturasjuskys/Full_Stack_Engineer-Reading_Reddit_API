@@ -39,11 +39,15 @@ export const articlesSlice = createSlice({
       comments: {},
     },
     subredditLogos: {},
-    subredditTitle: 'funny',
+    subreddit: 'funny',
     isLoadingPreviews: false,
     failedToLoadPreviews: false,
   },
-  reducers: {},
+  reducers: {
+    updateSubreddit(state, action) {
+      state.subreddit = action.payload;
+    },
+  },
   extraReducers: {
     // All Articles
     [loadArticles.pending]: (state, action) => {
@@ -92,10 +96,10 @@ export const articlesSlice = createSlice({
   },
 });
 
-export const { removeArticle } = articlesSlice.actions;
+export const { updateSubreddit } = articlesSlice.actions;
 export const selectArticles = (state) => state.main.articles;
 export const selectArticle = (state) => state.main.article;
 export const selectComments = (state) => state.main.article.comments;
-export const selectSubreddit = (state) => state.main.subredditTitle;
+export const selectSubreddit = (state) => state.main.subreddit;
 export const isLoading = (state) => state.main.isLoadingPreviews;
 export default articlesSlice.reducer;

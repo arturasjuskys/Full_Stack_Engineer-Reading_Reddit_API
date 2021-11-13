@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { loadArticles, selectSubreddit } from '../articles/articlesSlice';
-import { isLoadingSubreddits, selectAllSubreddits, updateSubreddit } from "./asideSlice";
+import { loadArticles, selectSubreddit, updateSubreddit } from '../articles/articlesSlice';
+import { isLoadingSubreddits, selectAllSubreddits } from "./asideSlice";
 import AsideListItem from './AsideListItem';
 
 export default function Aside () {
@@ -10,7 +10,6 @@ export default function Aside () {
   const isLoading = useSelector(isLoadingSubreddits);
   const subreddits = useSelector(selectAllSubreddits);
   let title = useSelector(selectSubreddit);
-  dispatch(updateSubreddit(title));
   
   const handleClick = (e) => {
     e.preventDefault();

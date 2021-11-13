@@ -6,7 +6,8 @@ import { loadArticles, selectSubreddit } from "./articlesSlice";
 export default function Articles() {
   const dispatch = useDispatch();
   const title = useSelector(selectSubreddit);
-
+  console.log(title);
+  
   useEffect(() => {
     dispatch(loadArticles(title));
   }, [dispatch, title]);
