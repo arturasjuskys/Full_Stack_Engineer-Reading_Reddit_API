@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ArticleListItem from "./ArticleListItem";
 import { loadArticles, selectSubreddit } from "./articlesSlice";
+import './ArticleListing.css';
 
 export default function Articles() {
   const dispatch = useDispatch();

@@ -35,9 +35,9 @@ The Reddit API will return some user content (comments) in Markdown. You should 
 * ~~Users can use the application on any modern browser~~
 * Users can access your application at a URL
 * ~~Users see an initial view of the data when first visiting the app~~
-* Users can search the data using terms
+* ~~Users can search the data using terms~~
 * ~~Users can filter the data based on categories that are predefined~~
-* Users are shown a detail view (modal or new page/route) when they select an item
+* ~~Users are shown a detail view (modal or new page/route) when they select an item~~
 * Users are delighted with a cohesive design system
 * Users are delighted with animations and transitions
 * Users are able to leave an error state
@@ -74,7 +74,8 @@ Check out these helpful resources:
 <img src="public/img/Wireframe-PC.PNG" />
 
 ## PC - Working Progress
-<img src="public/img/Capture-working-progress.png" />
+<img src="public/img/Capture01.png" />
+<img src="public/img/Capture02.png" />
 
 ## Example Code
 Want to see an example of how someone else has completed this project? Click this [link to download a zip file containing one example solution to this project](https://static-assets.codecademy.com/Paths/front-end-career-path/reddit-client/reddit-client-master.zip). Remember: your project doesn’t have to look anything like this! It should be unique to your vision.

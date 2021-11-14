@@ -11,15 +11,17 @@ function App () {
     <div className="App">
       <div className="App-main">
         <Nav />
-        <Aside />
-        <Switch>
-        <Route exact path="/">
-          <ArticleListing />
-        </Route>
-        <Route path="/:id">
-          <ArticleDetails />
-        </Route>
-      </Switch>
+        <div className="App-main">
+          <Aside />
+          <Switch>
+            <Route exact path="/">
+              <ArticleListing />
+            </Route>
+            <Route path="/:id">
+              <ArticleDetails />
+            </Route>
+          </Switch>
+          </div>
       </div>
     </div>
   );

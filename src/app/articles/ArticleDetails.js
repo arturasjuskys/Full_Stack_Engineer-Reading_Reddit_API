@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { loadArticle, loadComments, selectArticle, selectComments } from './articlesSlice';
 import { displayDatePosted } from './ArticleListItem';
+import './ArticleDetails.css'
 
 export default function ArticleDetails() {
   const dispatch = useDispatch();

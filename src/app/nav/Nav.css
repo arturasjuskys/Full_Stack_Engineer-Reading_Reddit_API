@@ -1,0 +1,34 @@
+.App-nav {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #0079d3;
+  height: 3em;
+  padding: .5em;
+}
+
+.nav-search {
+  border-radius: .5em;
+  border: solid 1px gray;
+  background: #dae0e6;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  margin: .4em;
+  border: solid 2px white;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 2em;
+}

@@ -1,0 +1,31 @@
+
+.full-article-img {
+  width: 100%;
+}
+
+.info-comments {
+  display: flex;
+  align-items: center;
+  height: 2em;
+}
+
+.comments-icon {
+  margin: .5em;
+}
+
+.comments {
+  font-weight: bold;
+}
+
+.open-reddit {
+  padding-left: 1em;
+}
+
+.full-article {
+  max-width: 800px;
+  display: flex;
+  border-radius: .5em;
+  padding: 1em;
+  background: white;
+  margin-top: .3em;
+}

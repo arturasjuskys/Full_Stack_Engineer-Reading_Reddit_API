@@ -1,0 +1,31 @@
+.main-aside {
+  background: white;
+  border-radius: .5em;
+  padding: .5em;
+  margin-top: .5em;
+}
+
+.main-aside h2 {
+  text-align: center;
+}
+
+.aside-ul {
+  width: 80%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.aside-ul a {
+  text-decoration: none;
+}
+
+.subreddit {
+  border: solid 1px gray;
+  border-radius: .5em;
+  list-style: none;
+  padding: .5em;
+  margin: .3em;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+}

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { loadArticles, selectSubreddit, updateSubreddit } from '../articles/articlesSlice';
 import { isLoadingSubreddits, selectAllSubreddits } from "./asideSlice";
 import AsideListItem from './AsideListItem';
+import './Aside.css';
 
 export default function Aside () {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export default function Aside () {
   return (
     <aside className="main-aside">
       <h2>Subreddits</h2>
-        <ul onClick={handleClick}>
+        <ul className="aside-ul" onClick={handleClick}>
           {subreddits.map((subreddit, index) => {
             return (
               <Link key={index} to="/">
