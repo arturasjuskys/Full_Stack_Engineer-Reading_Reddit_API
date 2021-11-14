@@ -1,6 +1,9 @@
 # Reddit App [Read Only]
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f0e1c10d-2910-43f6-bc07-f618f9800762/deploy-status)](https://app.netlify.com/sites/reading-reddit-api/deploys)
+
 ## Description
+Access Web App on [here...](https://reading-reddit-api.netlify.app/)
 
 ### Technologies Used
 - [x] HTML
@@ -25,12 +28,12 @@
 - [ ] Write end-to-end tests for your application
 - [x] Users can use the application on any device (desktop to mobile)
 - [x] Users can use the application on any modern browser
-- [ ] Users can access your application at a URL
+- [x] Users can access your application at a URL
 - [x] Users see an initial view of the data when first visiting the app
 - [x] Users can search the data using terms
 - [x] Users can filter the data based on categories that are predefined
 - [x] Users are shown a detail view (modal or new page/route) when they select an item
-- [ ] Users are delighted with a cohesive design system
+- [x] Users are delighted with a cohesive design system
 - [ ] Users are delighted with animations and transitions
 - [ ] Users are able to leave an error state
 - [ ] Get 90+ scores on [Lighthouse](https://web.dev/measure/)
