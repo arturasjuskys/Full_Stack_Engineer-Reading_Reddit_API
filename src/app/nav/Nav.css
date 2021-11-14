@@ -1,6 +1,6 @@
 .App-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   position: fixed;
   top: 0;
   width: 100%;
@@ -9,10 +9,20 @@
   padding: .5em;
 }
 
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1060px;
+  /* border: solid 1px red; */
+}
+
 .nav-search {
   border-radius: .5em;
-  border: solid 1px gray;
+  border: none;
   background: #dae0e6;
+  font-weight: bold;
+  padding-left: .5em;
 }
 
 .nav-logo {

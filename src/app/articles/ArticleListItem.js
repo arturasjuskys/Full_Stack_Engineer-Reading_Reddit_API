@@ -27,6 +27,18 @@ export const displayDatePosted = (current, article) => {
   };
 };
 
+export const displayScore = (article) => {
+  const score = article.score;
+  if (score > 1000) {
+    return `${(score / 1000).toFixed(1)}k`;
+  } else if (score === 0) {
+    return 'vote';
+  }
+   else {
+    return score;
+  }
+};
+
 export default function ArticleListItem () {
   const articles = useSelector(selectArticles);
   const searchTerm = useSelector(selectSearchTerm);
@@ -34,15 +46,19 @@ export default function ArticleListItem () {
   // console.log(current);
 
   const searchedArticles = articles.filter(article => {
-    return (
-      article.title.toLowerCase().includes(searchTerm.toLowerCase())
-      ||
-      article.selftext.toLowerCase().includes(searchTerm.toLowerCase())
+    if (!article) {
+      return <p>Nothing Matched!</p>
+    } else {
+      return (
+        article.title.toLowerCase().includes(searchTerm.toLowerCase())
+        ||
+        article.selftext.toLowerCase().includes(searchTerm.toLowerCase())
       );
-    });
+    }
+  });
 
   const renderListItem = searchedArticles.map((article) => {
-    const { id, score, title, thumbnail, author } = article;
+    const { id, title, thumbnail, author } = article;
     // console.log(article);
     
     const getThumbnail = () => {
@@ -57,7 +73,7 @@ export default function ArticleListItem () {
       <article key={id} className="article">
         <div className="article-score">
           <img className="score-icon" src="/img/arrow-up.png" alt="vote-up" />
-          <p className="score">{score}</p>
+          <p className="score">{displayScore(article)}</p>
           <img className="score-icon" src="/img/arrow-down.png" alt="vote-down" />
         </div>
         {getThumbnail()}

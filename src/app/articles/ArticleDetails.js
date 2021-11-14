@@ -3,18 +3,18 @@ import ReactMarkdown from 'react-markdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { loadArticle, loadComments, selectArticle, selectComments } from './articlesSlice';
-import { displayDatePosted } from './ArticleListItem';
+import { displayDatePosted, displayScore } from './ArticleListItem';
 import './ArticleDetails.css'
 
 export default function ArticleDetails() {
   const dispatch = useDispatch();
   const  article = useSelector(selectArticle);
-  const { score, title, selftext, author, url, permalink } = article.data;
+  const { title, selftext, author, url, permalink } = article.data;
   const { id: articleId } = useParams();
   const current = Date.now();
   const comments = useSelector(selectComments);
   // console.log(article);
-  console.log(comments);
+  // console.log(comments);
   // console.log(loadedComments);
 
   const countComments = () => {
@@ -53,7 +53,7 @@ export default function ArticleDetails() {
     <article className="full-article">
       <div className="article-score">
         <img className="score-icon" src="/img/arrow-up.png" alt="vote-up" />
-        <p className="score">{score}</p>
+        <p className="score">{displayScore(article.data)}</p>
         <img className="score-icon" src="/img/arrow-down.png" alt="vote-down" />
       </div>
       <div className="article-container">

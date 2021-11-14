@@ -6,6 +6,15 @@ import { isLoadingSubreddits, selectAllSubreddits } from "./asideSlice";
 import AsideListItem from './AsideListItem';
 import './Aside.css';
 
+export const loadIcon = (subreddit) => {
+  if (subreddit.data.icon_img) {
+    // console.log(subreddit.data.icon_img);
+    return <img className="subreddit-icon" src={subreddit.data.icon_img} alt="" />
+  } else {
+    return <div className="subreddit-icon no-icon">r/</div>;
+  }
+};
+
 export default function Aside () {
   const dispatch = useDispatch();
   const isLoading = useSelector(isLoadingSubreddits);
@@ -14,8 +23,9 @@ export default function Aside () {
   
   const handleClick = (e) => {
     e.preventDefault();
-    title = e.target.innerHTML;
-    dispatch(loadArticles(e.target.innerHTML));
+    title = e.target.dataset.subreddit;
+    // console.log(e.target.dataset.subreddit);
+    dispatch(loadArticles(e.target.dataset.subreddit));
     dispatch(updateSubreddit(title));
   };
   

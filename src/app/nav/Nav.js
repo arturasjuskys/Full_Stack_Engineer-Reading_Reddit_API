@@ -6,8 +6,10 @@ import './Nav.css';
 export default function Nav () {
   return (
     <nav className="App-nav">
-      <Logo />
-      <Search />
+      <div className="nav-container">
+        <Logo />
+        <Search />
+      </div>
     </nav>
   );
 };
