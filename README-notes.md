@@ -21,23 +21,23 @@ Notice here you didn’t add `.json` at the end of the URL. You actually added i
 The Reddit API will return some user content (comments) in Markdown. You should find a way to display the Markdown in your application.
 
 ## Project Requirements
-* ~~Build the application using React and Redux~~
-* ~~Version control your application with Git and host the repository on GitHub~~
-* ~~Use a project management tool (GitHub Projects, Trello, etc.) to plan your work~~
-* Write a README (using Markdown) that documents your project including:
-  * ~~Wireframes~~
-  * Technologies used
+- [x] Build the application using React and Redux
+- [x] Version control your application with Git and host the repository on GitHub
+- [x] Use a project management tool (GitHub Projects, Trello, etc.) to plan your work
+- [x] Write a README (using Markdown) that documents your project including:
+  - [x] Wireframes
+  - [x] Technologies used
   * Features
   * Future work
 * Write unit tests for your components using Jest and Enzyme
 * Write end-to-end tests for your application
-* ~~Users can use the application on any device (desktop to mobile)~~
-* ~~Users can use the application on any modern browser~~
+- [x] Users can use the application on any device (desktop to mobile)
+- [x] Users can use the application on any modern browser
 * Users can access your application at a URL
-* ~~Users see an initial view of the data when first visiting the app~~
-* ~~Users can search the data using terms~~
-* ~~Users can filter the data based on categories that are predefined~~
-* ~~Users are shown a detail view (modal or new page/route) when they select an item~~
+- [x] Users see an initial view of the data when first visiting the app
+- [x] Users can search the data using terms
+- [x] Users can filter the data based on categories that are predefined
+- [x] Users are shown a detail view (modal or new page/route) when they select an item
 * Users are delighted with a cohesive design system
 * Users are delighted with animations and transitions
 * Users are able to leave an error state
@@ -48,15 +48,16 @@ The Reddit API will return some user content (comments) in Markdown. You should 
 * OPTIONAL: Make your application a progressive web app
 
 ## Prerequisites
-* HTML
-* CSS
-* JavaScript
-* React
-* Redux
-* Jest, Enzyme, and Selenium
-* Git and GitHub
-* Command line and file navigation
-* Wireframing
+- [x] HTML
+- [x] CSS
+- [x] JavaScript
+- [x] React
+- [x] Redux
+- [ ] Jest, Enzyme, and Selenium
+- [x] Git and GitHub
+- [x] Command line and file navigation
+- [x] Wireframing
+
 
 Check out these helpful resources:
 * [Thinking About Errors in Your Code Differently](https://www.codecademy.com/content-items/673d70052fe5627f2222ab7840b4c5db)
