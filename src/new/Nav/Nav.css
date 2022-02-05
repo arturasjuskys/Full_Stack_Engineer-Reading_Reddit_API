@@ -1,6 +1,7 @@
 nav {
   display: flex;
   border: solid 1px gray;
+  margin-bottom: .5em;
 }
 
 nav h2 {

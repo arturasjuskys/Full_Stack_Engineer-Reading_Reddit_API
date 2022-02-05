@@ -107,9 +107,9 @@ export default function Article () {
       </section>
       <section className="article-footer">
         <div className="score">
-          <img className="score-icon" src="/img/arrow-up.png" alt="vote-up" />
+          <img className="score-icon vote-up" src="/img/arrow-up.png" alt="vote-up" />
           <p>{displayScore(article)}</p>
-          <img className="score-icon" src="/img/arrow-down.png" alt="vote-down" />
+          <img className="score-icon vote-down" src="/img/arrow-down.png" alt="vote-down" />
         </div>
         {/* <div className="comments" onClick={displayComments}> */}
         <div className="comments">
