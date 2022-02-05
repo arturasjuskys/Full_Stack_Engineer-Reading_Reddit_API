@@ -47,6 +47,12 @@ export const articlesSlice = createSlice({
     updateSubreddit(state, action) {
       state.subreddit = action.payload;
     },
+    clearArticle(state, action) {
+      state.article = {
+        id: '',
+        comments: {},
+      };
+    },
   },
   extraReducers: {
     // All Articles
@@ -96,7 +102,7 @@ export const articlesSlice = createSlice({
   },
 });
 
-export const { updateSubreddit } = articlesSlice.actions;
+export const { updateSubreddit, clearArticle } = articlesSlice.actions;
 export const selectArticles = (state) => state.main.articles;
 export const selectArticle = (state) => state.main.article;
 export const selectComments = (state) => state.main.article.comments;

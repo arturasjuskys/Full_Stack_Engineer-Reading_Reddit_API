@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { selectArticles } from "./articlesSlice";
 import { selectSearchTerm } from "../nav/navSlice";
 
@@ -80,9 +80,9 @@ export default function ArticleListItem () {
         <div className="article-info">
           <div className="full-article-info">
             <p className="posted-by">Posted by u/{author} {displayDatePosted(current, article)}</p>
-            <Link to={id}>
+            {/* <Link to={id}> */}
               <h2 className="full-title">{title}</h2>
-            </Link>
+            {/* </Link> */}
           </div>
           <div className="info-comments"></div>
         </div>

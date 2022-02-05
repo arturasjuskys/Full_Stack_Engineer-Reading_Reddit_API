@@ -1,0 +1,8 @@
+nav {
+  display: flex;
+  border: solid 1px gray;
+}
+
+nav h2 {
+  margin: .5em .5em;
+}

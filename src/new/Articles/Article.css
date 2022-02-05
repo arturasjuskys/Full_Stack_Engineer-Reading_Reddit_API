@@ -1,0 +1,48 @@
+.article {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px gray;
+  padding: 1em;
+  margin: .3em;
+  width: 100%;
+  max-width: 50em;
+}
+
+.article-header h2, .article-header p {
+  /* border: solid 1px red; */
+  margin: 0;
+}
+
+.image {
+  width: 100%;
+}
+
+.article-video {
+  max-width: 100%
+}
+
+.article-footer {
+  display: flex;
+}
+
+.score, .comments {
+  border: solid 1px red;
+  margin: .1em .3em;
+}
+
+.article-footer p {
+  margin: 0;
+}
+
+.score {
+  display: flex;
+  /* border: solid 1px red; */
+  align-items: center;
+  /* padding: 0; */
+}
+
+.score-icon {
+  /* width: 1em; */
+  height: 1.3em;
+  margin: 0;
+}
