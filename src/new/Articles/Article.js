@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ReactMarkdown from 'react-markdown';
 // import { Link } from 'react-router-dom';
-import { selectArticles, selectComments } from "./articlesSlice";
+import { selectArticles } from "./articlesSlice";
 // import { selectSearchTerm } from "../nav/navSlice";
 import './Article.css';
 
@@ -64,25 +64,25 @@ const displayVideo = (article) => {
   </video>
 };
 
-const displayComments = async (e) => {
-  const id = e.target.id;
-  console.log(id);
+// const displayComments = async (e) => {
+//   const id = e.target.id;
+//   console.log(id);
 
-  const data = await fetch(`https://www.reddit.com/comments/${id}.json`);
-  const json = await data.json();
-  const commentsList = json[1].data.children;
-  console.log(commentsList);
+//   const data = await fetch(`https://www.reddit.com/comments/${id}.json`);
+//   const json = await data.json();
+//   const commentsList = json[1].data.children;
+//   console.log(commentsList);
 
-  commentsList.map(comment => {
-    const { body, body_html, author_fullname, created } = comment.data;
-    console.log(body);
-    // console.log(body_html);
+//   commentsList.map(comment => {
+//     const { body, body_html, author_fullname, created } = comment.data;
+//     console.log(body);
+//     // console.log(body_html);
     
-    return <article className="comment">
-      <p>{body}</p>
-    </article>
-  })
-};
+//     return <article className="comment">
+//       <p>{body}</p>
+//     </article>
+//   })
+// };
 
 export default function Article () {
   const articles = useSelector(selectArticles);
@@ -111,7 +111,8 @@ export default function Article () {
           <p>{displayScore(article)}</p>
           <img className="score-icon" src="/img/arrow-down.png" alt="vote-down" />
         </div>
-        <div className="comments" onClick={displayComments}>
+        {/* <div className="comments" onClick={displayComments}> */}
+        <div className="comments">
           <p id={id}>{num_comments} Comments</p>
         </div>
       </section>
