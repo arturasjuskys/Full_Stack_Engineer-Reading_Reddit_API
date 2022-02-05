@@ -64,14 +64,25 @@ const displayVideo = (article) => {
   </video>
 };
 
-// const commentsCount = (article) => {
-//   const { id } = article;
+const displayComments = async (e) => {
+  const id = e.target.id;
+  console.log(id);
 
-//   let count;
-//   if(!comments[0]) return;
-//   count = comments[0].data.children[0].data.num_comments;
-//   return count;
-// };
+  const data = await fetch(`https://www.reddit.com/comments/${id}.json`);
+  const json = await data.json();
+  const commentsList = json[1].data.children;
+  console.log(commentsList);
+
+  commentsList.map(comment => {
+    const { body, body_html, author_fullname, created } = comment.data;
+    console.log(body);
+    // console.log(body_html);
+    
+    return <article className="comment">
+      <p>{body}</p>
+    </article>
+  })
+};
 
 export default function Article () {
   const articles = useSelector(selectArticles);
@@ -80,7 +91,7 @@ export default function Article () {
   console.log(articles);
 
   const renderArticle = articles.map(article => {
-    const { id, title, selftext, author } = article;
+    const { id, title, selftext, author, num_comments } = article;
     // console.log(article);
 
     return (
@@ -100,8 +111,8 @@ export default function Article () {
           <p>{displayScore(article)}</p>
           <img className="score-icon" src="/img/arrow-down.png" alt="vote-down" />
         </div>
-        <div className="comments">
-          <p>Comments</p>
+        <div className="comments" onClick={displayComments}>
+          <p id={id}>{num_comments} Comments</p>
         </div>
       </section>
     </article>

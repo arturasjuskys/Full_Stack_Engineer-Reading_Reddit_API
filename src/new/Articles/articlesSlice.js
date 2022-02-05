@@ -25,11 +25,7 @@ export const articlesSlice = createSlice({
   initialState: {
     subreddit: '240sx',
     articles: [],
-    article: {
-      id: '',
-      date: {},
-      comments: {},
-    },
+    comments: {},
     isLoading: false,
     failedToLoad: false
   },
@@ -57,7 +53,7 @@ export const articlesSlice = createSlice({
     [loadComments.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.failedToLoad = false;
-      state.article.comments = action.payload;
+      state.comments = action.payload;
     },
     [loadComments.rejected]: (state, action) => {
       state.isLoading = false;
