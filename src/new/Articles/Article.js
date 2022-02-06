@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import ReactMarkdown from 'react-markdown';
 // import { Link } from 'react-router-dom';
 import { selectArticles } from "./articlesSlice";
+import { selectSearchTerm } from "../Nav/navSlice";
 // import { selectSearchTerm } from "../nav/navSlice";
 import './Article.css';
 
@@ -86,11 +87,23 @@ const displayVideo = (article) => {
 
 export default function Article () {
   const articles = useSelector(selectArticles);
+  const searchTerm = useSelector(selectSearchTerm);
   // const comments = useSelector(selectComments);
   const current = Date.now();
-  console.log(articles);
+  // console.log(articles);
 
-  const renderArticle = articles.map(article => {
+  const searchedArticles = articles.filter(article => {
+    return (
+      article.title.toLowerCase().includes(searchTerm.toLowerCase())
+      ||
+      article.selftext.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+  
+  console.log(searchedArticles);
+  if (searchedArticles.length === 0 ) return <h3>Nothing Matches</h3>;
+
+  const renderArticle = searchedArticles.map(article => {
     const { id, title, selftext, author, num_comments } = article;
     // console.log(article);
 
