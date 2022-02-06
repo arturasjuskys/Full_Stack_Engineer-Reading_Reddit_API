@@ -1,11 +1,10 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ReactMarkdown from 'react-markdown';
-// import { Link } from 'react-router-dom';
-import { selectArticles } from "./articlesSlice";
+import { selectArticles, selectArticleId, updateArticleID, loadComments } from "./articlesSlice";
 import { selectSearchTerm } from "../Nav/navSlice";
-// import { selectSearchTerm } from "../nav/navSlice";
 import './Article.css';
+import Comments from "./Comments";
 
 export const displayDatePosted = (current, article) => {
   const msPerMinute = 60 * 1000;
@@ -30,7 +29,7 @@ export const displayDatePosted = (current, article) => {
   };
 };
 
-export const displayScore = (article) => {
+const displayScore = (article) => {
   const score = article.score;
   if (score > 1000) {
     return `${(score / 1000).toFixed(1)}k`;
@@ -57,40 +56,20 @@ const displayVideo = (article) => {
   if (!article.media.reddit_video) return;
   if (!article.media.reddit_video.fallback_url) return;
   const video = article.media.reddit_video.fallback_url;
-  // console.log(article.title);
-  // console.log(video.fallback_url);
 
   return <video className="article-video"  controls>
     <source src={video} type="video/mp4" className="video" />
   </video>
 };
 
-// const displayComments = async (e) => {
-//   const id = e.target.id;
-//   console.log(id);
-
-//   const data = await fetch(`https://www.reddit.com/comments/${id}.json`);
-//   const json = await data.json();
-//   const commentsList = json[1].data.children;
-//   console.log(commentsList);
-
-//   commentsList.map(comment => {
-//     const { body, body_html, author_fullname, created } = comment.data;
-//     console.log(body);
-//     // console.log(body_html);
-    
-//     return <article className="comment">
-//       <p>{body}</p>
-//     </article>
-//   })
-// };
-
 export default function Article () {
+  const dispatch = useDispatch();
   const articles = useSelector(selectArticles);
   const searchTerm = useSelector(selectSearchTerm);
-  // const comments = useSelector(selectComments);
+  let articleId = useSelector(selectArticleId);
   const current = Date.now();
-  // console.log(articles);
+  const [isActive, setActive] = useState(false);
+  console.log(articleId);
 
   const searchedArticles = articles.filter(article => {
     return (
@@ -99,37 +78,52 @@ export default function Article () {
       article.selftext.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
-  
-  console.log(searchedArticles);
+
+  const handleCommentsClick = (e) => {
+    e.preventDefault();
+    articleId = e.target.id;
+    setActive(!isActive);
+    dispatch(updateArticleID(articleId));
+    return (
+      <p>test</p>
+    );
+  };
+
+  useEffect(() => {
+    
+    dispatch(loadComments(articleId));
+  }, [dispatch, articleId]);
+
   if (searchedArticles.length === 0 ) return <h3>Nothing Matches</h3>;
 
   const renderArticle = searchedArticles.map(article => {
     const { id, title, selftext, author, num_comments } = article;
-    // console.log(article);
 
     return (
-      <article key={id} className="article">
-      <section className="article-header">
-        <p>Posted by u/{author} {displayDatePosted(current, article)}</p>
-        <h2>{title}</h2>
-      </section>
-      <section className="article-image">
-        {displayImage(article)}
-        {displayVideo(article)}
-        <ReactMarkdown>{selftext}</ReactMarkdown>
-      </section>
-      <section className="article-footer">
-        <div className="score">
-          <img className="score-icon vote-up" src="/img/arrow-up.png" alt="vote-up" />
-          <p>{displayScore(article)}</p>
-          <img className="score-icon vote-down" src="/img/arrow-down.png" alt="vote-down" />
-        </div>
-        {/* <div className="comments" onClick={displayComments}> */}
-        <div className="comments">
-          <p id={id}>{num_comments} Comments</p>
-        </div>
-      </section>
-    </article>
+      <>
+        <article key={id} id={id} className="article">
+          <section className="article-header">
+            <p>Posted by u/{author} {displayDatePosted(current, article)}</p>
+            <h2>{title}</h2>
+          </section>
+          <section className="article-image">
+            {displayImage(article)}
+            {displayVideo(article)}
+            <ReactMarkdown>{selftext}</ReactMarkdown>
+          </section>
+          <section className="article-footer" onClick={handleCommentsClick}>
+            <div className="votes-comments-counter">
+              <div className="score">
+                <img className="score-icon vote-up" src="/img/arrow-up.png" alt="vote-up" />
+                <p>{displayScore(article)}</p>
+                <img className="score-icon vote-down" src="/img/arrow-down.png" alt="vote-down" />
+              </div>
+              <p id={id} className="comments-count">{num_comments} Comments</p>
+            </div>
+            {articleId === id ? <Comments /> : null}
+          </section>
+        </article>
+      </>
     );
   });
 

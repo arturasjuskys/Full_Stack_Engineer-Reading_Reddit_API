@@ -40,7 +40,7 @@
 /**************************************************************************************************/
 /* Footer */
 
-.article-footer {
+.votes-comments-counter {
   display: flex;
   /* color: grey; */
   font-weight: bold;
@@ -71,6 +71,6 @@
   margin-left: .2em;
 }
 
-.comments {
-  color: grey;
+.comments-count {
+  color: gray;
 }

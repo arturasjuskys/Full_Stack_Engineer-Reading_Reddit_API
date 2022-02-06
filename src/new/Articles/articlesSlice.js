@@ -16,7 +16,8 @@ export const loadComments = createAsyncThunk(
   async (id) => {
     const data = await fetch(`${API_ROOT}/comments/${id}.json`);
     const json = await data.json();
-    return json;
+    console.log(json[1].data.children);
+    return json[1].data.children;
   }
 );
 
@@ -25,13 +26,20 @@ export const articlesSlice = createSlice({
   initialState: {
     subreddit: '240sx',
     articles: [],
-    comments: {},
+    articleId: '',
+    comments: [],
     isLoading: false,
     failedToLoad: false
   },
   reducers: {
     updateSubreddit(state, action) {
       state.subreddit = action.payload
+    },
+    updateArticleID(state, action) {
+      state.articleId = action.payload
+    },
+    clearComments(state, action) {
+      state.comments = [];
     }
   },
   extraReducers: {
@@ -58,6 +66,7 @@ export const articlesSlice = createSlice({
     [loadComments.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.failedToLoad = false;
+      state.comments = [];
       state.comments = action.payload;
     },
     [loadComments.rejected]: (state, action) => {
@@ -67,9 +76,10 @@ export const articlesSlice = createSlice({
   },
 });
 
-export const { updateSubreddit } = articlesSlice.actions;
+export const { updateSubreddit, updateArticleID, clearComments } = articlesSlice.actions;
 export const selectSubreddit = (state) => state.mainBody.subreddit;
 export const selectArticles = (state) => state.mainBody.articles;
+export const selectArticleId = (state) => state.mainBody.articleId;
 export const selectComments = (state) => state.mainBody.comments;
 export const isLoading = (state) => state.mainBody.isLoading;
 export default articlesSlice.reducer;
