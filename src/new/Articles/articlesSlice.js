@@ -18,7 +18,7 @@ export const loadComments = createAsyncThunk(
     const json = await data.json();
     return json;
   }
-)
+);
 
 export const articlesSlice = createSlice({
   name: 'mainBody',
@@ -28,6 +28,11 @@ export const articlesSlice = createSlice({
     comments: {},
     isLoading: false,
     failedToLoad: false
+  },
+  reducers: {
+    updateSubreddit(state, action) {
+      state.subreddit = action.payload
+    }
   },
   extraReducers: {
     // All Articles
@@ -62,6 +67,7 @@ export const articlesSlice = createSlice({
   },
 });
 
+export const { updateSubreddit } = articlesSlice.actions;
 export const selectSubreddit = (state) => state.mainBody.subreddit;
 export const selectArticles = (state) => state.mainBody.articles;
 export const selectComments = (state) => state.mainBody.comments;
