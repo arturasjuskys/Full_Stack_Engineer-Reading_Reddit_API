@@ -1,6 +1,7 @@
 nav{
   border: solid 1px gray;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: .5em;
 }
