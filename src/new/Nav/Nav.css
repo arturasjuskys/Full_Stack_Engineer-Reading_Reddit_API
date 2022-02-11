@@ -11,7 +11,10 @@ nav{
 }
 
 nav h2 {
-  margin: .5em .5em;
+  margin: .5em .1em;
+  /* border: solid 1px gray; */
+  border-radius: .2em;
+  padding: .2em .5em;
 }
 
 .search {
@@ -20,4 +23,8 @@ nav h2 {
   border: solid 1px gray;
   border-radius: .5em;
   height: 2.2em;
+}
+
+.active {
+  background: silver;
 }

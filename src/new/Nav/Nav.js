@@ -9,6 +9,10 @@ export default function Nav () {
 
   const handleClick = (e) => {
     e.preventDefault();
+    if (e.target.nodeName === 'SECTION') return;
+    const subs = [...document.getElementsByClassName('active')];
+    subs.map(sub => sub.classList.remove('active'));
+    e.target.classList.add('active');
     subreddit = e.target.id;
     dispatch(updateSubreddit(subreddit));
   };
@@ -17,7 +21,7 @@ export default function Nav () {
     <nav>
       <section className='nav-subs' onClick={handleClick}>
         <h2 id="nasa">NASA</h2>
-        <h2 id="240sx">240sx</h2>
+        <h2 id="240sx" className='active'>240sx</h2>
         <h2 id="astrophotography">Astrophotography</h2>
       </section>
       <Search />
