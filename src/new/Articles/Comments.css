@@ -1,0 +1,21 @@
+.comments {
+  border: solid 1px gray;
+  border-radius: .5em;
+  margin-top: 1em;
+}
+
+.comment {
+  border-left: solid 1px gray;
+  border-radius: .5em;
+  margin: 1.5em .8em .8em .8em;
+  padding: 1em;
+  clear: both;
+}
+
+.comments-button {
+  margin: .5em;
+  background: white;
+  border: solid 1px gray;
+  border-radius: .3em;
+  float: right;
+}

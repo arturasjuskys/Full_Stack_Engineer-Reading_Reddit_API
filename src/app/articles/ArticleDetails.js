@@ -1,21 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { loadArticle, loadComments, selectArticle, selectComments } from './articlesSlice';
+import { clearArticle, loadArticle, loadComments, selectArticle, selectComments } from './articlesSlice';
 import { displayDatePosted, displayScore } from './ArticleListItem';
 import './ArticleDetails.css'
 
 export default function ArticleDetails() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const  article = useSelector(selectArticle);
   const { title, selftext, author, url, permalink } = article.data;
   const { id: articleId } = useParams();
   const current = Date.now();
   const comments = useSelector(selectComments);
   // console.log(article);
-  // console.log(comments);
-  // console.log(loadedComments);
+  const initialState = {
+    id: '',
+    data: {},
+    comments: {},
+  };
+  const [dispatch] = useReducer(clearArticle, initialState);
 
   const countComments = () => {
     let count;
@@ -35,9 +39,7 @@ export default function ArticleDetails() {
   const getVideo = () => {
     if (!article.data.media) return;
     const video = article.data.media.reddit_video.fallback_url;
-    const height = article.data.media.reddit_video.height;
-    const width = article.data.media.reddit_video.width;
-    return <video width={width} height={height} controls>
+    return <video className="article-video"  controls>
       <source src={video} type="video/mp4" />
     </video>
     };
@@ -46,7 +48,7 @@ export default function ArticleDetails() {
     if (articleId && articleId !== '') {
       dispatch(loadArticle(articleId))
       dispatch(loadComments(articleId));
-    } 
+    }
   }, [dispatch, articleId]);
 
   return (

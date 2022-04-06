@@ -1,0 +1,31 @@
+nav{
+  border: solid 1px gray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: .5em;
+}
+.nav-subs {
+  display: flex;
+  flex-wrap: wrap;
+  /* border: solid 1px gray; */
+}
+
+nav h2 {
+  margin: .5em .1em;
+  /* border: solid 1px gray; */
+  border-radius: .2em;
+  padding: .2em .5em;
+}
+
+.search {
+  margin: .5em;
+  padding: .5em;
+  border: solid 1px gray;
+  border-radius: .5em;
+  height: 2.2em;
+}
+
+.active {
+  background: silver;
+}
