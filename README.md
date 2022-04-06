@@ -1,6 +1,9 @@
 # Reddit App [Read Only]
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f0e1c10d-2910-43f6-bc07-f618f9800762/deploy-status)](https://app.netlify.com/sites/reading-reddit-api/deploys)
+
 ## Description
+Access Web App on [here...](https://reading-reddit-api.netlify.app/)
 
 ### Technologies Used
 - [x] HTML
