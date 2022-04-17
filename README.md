@@ -3,12 +3,15 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f0e1c10d-2910-43f6-bc07-f618f9800762/deploy-status)](https://app.netlify.com/sites/reading-reddit-api/deploys)
 
+Access Web App on [here...](https://reading-reddit-api.netlify.app/)
+
 ## Description
 This project is oriented towards front-end development, and main objective is to receive json data, handle it and display it using `React-Redux`. This is not meant to be a copy of the existing reddit platform.
 
 `React-Redux` template enables creation of visual representation of `json data`. `fetch API` acquires data from reddit JSON API every time the app is opened. `Redux` part of equation is responsible for handling internal `app state`, this includes structuring and modelling data, handling updates, and making additional API calls if necessary. `React` enables creation of application like webpage, where instead of whole page load/reloads parts of it are updated as necessary.
 
 Posts are displayed using `react-markdown` npm module, it handles accurate markdown execution and integration into React functional components. To access comments additional API call with post id is required to different endpoint.
+
 
 ### Technologies Used
 * JavaScript
